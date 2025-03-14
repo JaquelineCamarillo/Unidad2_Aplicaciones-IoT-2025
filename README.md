@@ -1,4 +1,6 @@
 # Unidad2_Aplicaciones-IoT-2025
+## Camarillo Olaez Juana Jaqueline
+## Gutierres Vargas Jose Andres
 # INSTRUMENTO DE EVALUACIÓN ORDINARIO
 ## PARTE TEÓRICA
 ### (INDIVIDUAL)
