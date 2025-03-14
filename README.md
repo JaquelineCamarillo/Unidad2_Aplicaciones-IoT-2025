@@ -1,6 +1,6 @@
 # Unidad2_Aplicaciones-IoT-2025
 # INSTRUMENTO DE EVALUACIÓN ORDINARIO
-## PARTE TEÓRICA (30 PUNTOS)
+## PARTE TEÓRICA
 ### (INDIVIDUAL)
 
 ![Captura de pantalla 2025-03-03 213236](https://github.com/user-attachments/assets/693da0d4-fa98-4892-99fc-8fcb7a08915a)
@@ -10,12 +10,13 @@
 ![Captura de pantalla 2025-03-03 221113](https://github.com/user-attachments/assets/489d5a9a-bbfd-4c7b-abb8-e4348262a872)
 
 
-## PARTE PRÁCTICA (60 PUNTOS)
+## PARTE PRÁCTICA
 ### (PAREJAS)
 ### Videos
 
 
 ### Diagramas
+https://docs.google.com/document/d/1X_KFrwY3bWaMy3bEepAV6AZ1XNSjKh_NqG8463t1gng/edit?usp=sharing
 
 
 ### Codigos
