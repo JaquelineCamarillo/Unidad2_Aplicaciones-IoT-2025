@@ -8,3 +8,21 @@
 ![Captura de pantalla 2025-03-03 210110](https://github.com/user-attachments/assets/dce2b2da-b718-42db-9cf2-92c501278977)
 ![Captura de pantalla 2025-03-03 203957](https://github.com/user-attachments/assets/cbdee068-689a-4c39-892a-d74ecddf7376)
 ![Captura de pantalla 2025-03-03 221113](https://github.com/user-attachments/assets/489d5a9a-bbfd-4c7b-abb8-e4348262a872)
+
+
+## PARTE PRÁCTICA (60 PUNTOS)
+### (PAREJAS)
+### Videos
+
+
+### Diagramas
+
+
+### Codigos
+
+
+
+## PRACTICA DE SOLDAURA 
+### (INDIVIDUAL)
+### Circuito funcional de 10 led's en placa fenólica
+
