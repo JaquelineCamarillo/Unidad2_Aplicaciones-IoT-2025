@@ -19,8 +19,7 @@ https://drive.google.com/drive/folders/1GBGAqnlZoLG47SSVdi187TKAhSBM3TXv?usp=sha
 https://docs.google.com/document/d/1X_KFrwY3bWaMy3bEepAV6AZ1XNSjKh_NqG8463t1gng/edit?usp=sharing
 
 ### Codigos
-
-
+https://drive.google.com/drive/folders/1IscvJZs3yqX5bxZFhLfur3r71R7eZjxq?usp=sharing
 
 ## PRACTICA DE SOLDAURA 
 ### (INDIVIDUAL)
