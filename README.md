@@ -13,11 +13,10 @@
 ## PARTE PRÁCTICA
 ### (PAREJAS)
 ### Videos
-
+https://drive.google.com/drive/folders/1GBGAqnlZoLG47SSVdi187TKAhSBM3TXv?usp=sharing
 
 ### Diagramas
 https://docs.google.com/document/d/1X_KFrwY3bWaMy3bEepAV6AZ1XNSjKh_NqG8463t1gng/edit?usp=sharing
-
 
 ### Codigos
 
