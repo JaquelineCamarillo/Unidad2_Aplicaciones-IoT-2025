@@ -85,29 +85,41 @@ https://drive.google.com/drive/folders/1GBGAqnlZoLG47SSVdi187TKAhSBM3TXv?usp=sha
 ![image](https://github.com/user-attachments/assets/0178906d-4678-45b1-b3e9-8bffa8ee7144)
 
 - KY-015  Sensor de Temperatura y Humedad  
+![image](https://github.com/user-attachments/assets/5ba85f55-0f70-4a1b-bee1-ee799ece2527)
 
 - KY-018  Modulo de Fotorresistencia  
+![image](https://github.com/user-attachments/assets/efef5b1d-fb30-4eaa-ac75-945fd538db4d)
 
 - MQ-9    Modulo de carbono Gases(CO)  
+![image](https://github.com/user-attachments/assets/2a09ef1d-8aaa-43a8-accf-37f32dfdec4d)
 
 - KY-019  Módulo de 1 Relevador 
+![image](https://github.com/user-attachments/assets/d305b039-6fea-442c-a95c-838d46f4cdf7)
 
 - KY-021  Módulo Mini Interruptor Magnético 
+![image](https://github.com/user-attachments/assets/c55af44e-5d4e-44e1-8ad4-7a1f72df57fe)
 
 - KY-022  Módulo Led Infrarrojo Receptor  
- 
+ ![image](https://github.com/user-attachments/assets/534f3d64-8c4d-44d1-bf18-ff190bec3ede)
+
 - KY-023  Modulo Joystick
-  
+  ![image](https://github.com/user-attachments/assets/4c230051-efdb-4eea-9a21-767300ccc02d)
+
 - KY-024  Sensor de Campo Magnético  
+![image](https://github.com/user-attachments/assets/540a0ee7-0005-4ad3-bc44-e5ac1d8377a4)
 
 - KY-025  Modulo Reed Switch  
+![image](https://github.com/user-attachments/assets/19ce5b94-2e08-4e5b-9060-0fb21ae1f9e9)
 
 - KY-026  Sensor de Flama 
+![image](https://github.com/user-attachments/assets/a9942fc4-e10f-4d01-a336-01966c24dab3)
 
 - KY-029  Modulo Led 2 Colores 3mm  
+![image](https://github.com/user-attachments/assets/ca4130a2-bb94-4ada-90b4-0dd6ac070cce)
 
 - KY-031  Sensor de Impacto  
-  
+  ![image](https://github.com/user-attachments/assets/2c931722-7c7b-44ba-8022-7c19906214fa)
+
 - KY-032  Sensor de Obstáculos  
 
 - KY-033  Sensor de Línea  
