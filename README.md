@@ -121,31 +121,46 @@ https://drive.google.com/drive/folders/1GBGAqnlZoLG47SSVdi187TKAhSBM3TXv?usp=sha
   ![image](https://github.com/user-attachments/assets/2c931722-7c7b-44ba-8022-7c19906214fa)
 
 - KY-032  Sensor de Obstáculos  
+![image](https://github.com/user-attachments/assets/bee7ae35-a523-4296-91fe-e9c23ea13090)
 
 - KY-033  Sensor de Línea  
+![image](https://github.com/user-attachments/assets/b29dfebb-fc21-4efd-820e-c38546ecc659)
 
 - KY-034  Modulo Led 7 Colores
+![image](https://github.com/user-attachments/assets/324e5ad5-38ab-4bc1-9227-02737acb9bf8)
 
 - MQ-7    Monoxido (CO)    
+![image](https://github.com/user-attachments/assets/b93543f6-cd25-4abd-aec5-c78fb3648f56)
 
 - KY-035  Sensor Efecto Hall Análogo
+![image](https://github.com/user-attachments/assets/241382b5-41e9-49d5-83b3-ac1f45728072)
 
 - KY-036  Sensor Táctil de Metal  
+![image](https://github.com/user-attachments/assets/c7541942-b167-4bfa-9d18-9bf7d6250b08)
 
 - KY-039  Sensor de Pulso
-  
+  ![image](https://github.com/user-attachments/assets/ea053460-f081-443b-92a2-8fe6ca9a77ca)
+
 - MQ-8    Hidrogeno  
+![image](https://github.com/user-attachments/assets/0dd46c74-0c5d-48cf-8f71-70ce6f934c44)
 
 - KY-040  Módulo Encoder  
+![image](https://github.com/user-attachments/assets/cc13274b-a078-4062-ac46-e9a3a448aaa7)
 
 - MQ-2    LPG, butano, propano, metano, alcohol, humo, hidrógeno 
+![image](https://github.com/user-attachments/assets/e6158b75-715c-48fa-b226-bdf52ca1add2)
 
 - MQ-3    Alcohol (etílico, bebida alcohólica)  
+![image](https://github.com/user-attachments/assets/92d8b534-7c79-4ce3-a459-a4cd8905ee87)
 
 - MQ-135  Gases Toxicos
+![image](https://github.com/user-attachments/assets/9758d03f-7882-4808-8f60-12a12192ac54)
 
 - MQ-4  Metano (CH4)  
+![image](https://github.com/user-attachments/assets/bed4dcbf-a9d1-41c1-a910-74d55ec223e2)
 
 - MQ-5  LPG, metano, butano, hidrógeno  
+![image](https://github.com/user-attachments/assets/ae3d30a7-7ed7-483c-b1b2-b33c5906be5b)
 
 - MQ-6  LPG
+![image](https://github.com/user-attachments/assets/fc9c2c88-0227-44a2-8be3-dd8bd2ad0f60)
