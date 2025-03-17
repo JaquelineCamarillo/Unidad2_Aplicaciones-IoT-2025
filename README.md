@@ -21,9 +21,8 @@ https://drive.google.com/drive/folders/1GBGAqnlZoLG47SSVdi187TKAhSBM3TXv?usp=sha
 ### (INDIVIDUAL)
 ### Circuito funcional de 10 led's en placa fenólica
 
-
-
-
+![Imagen de WhatsApp 2025-03-16 a las 20 12 53_46028521](https://github.com/user-attachments/assets/5796c302-5be1-4a44-bbf0-15e1bbe16f3c)
+![Imagen de WhatsApp 2025-03-16 a las 20 12 53_77cb79de](https://github.com/user-attachments/assets/71ab9cd0-388d-4ee8-9563-04f04331bbbc)
 
 
 ## DIAGRAMAS
