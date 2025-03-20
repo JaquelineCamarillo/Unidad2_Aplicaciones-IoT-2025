@@ -1,18 +1,18 @@
 [
     {
-        "id": "55f5b3a3f1390ea8",
+        "id": "15aa9154d475a501",
         "type": "tab",
-        "label": "Flujo 1",
+        "label": "Flujo 2",
         "disabled": false,
         "info": "",
         "env": []
     },
     {
-        "id": "e6345b57a065103d",
+        "id": "64ace873c39a7a62",
         "type": "mqtt in",
-        "z": "55f5b3a3f1390ea8",
+        "z": "15aa9154d475a501",
         "name": "",
-        "topic": "prgs/sensorsonido",
+        "topic": "sensor/magnetismo",
         "qos": "2",
         "datatype": "auto-detect",
         "broker": "8cbfcdb39f5a3db7",
@@ -20,19 +20,20 @@
         "rap": true,
         "rh": 0,
         "inputs": 0,
-        "x": 130,
-        "y": 160,
+        "x": 350,
+        "y": 240,
         "wires": [
             [
-                "e610e4a1c0625b74"
+                "d7a3bcd82a80ecad",
+                "bc0f1c006bd83e28"
             ]
         ]
     },
     {
-        "id": "3872f9968d8616aa",
+        "id": "bc0f1c006bd83e28",
         "type": "debug",
-        "z": "55f5b3a3f1390ea8",
-        "name": "debug 2",
+        "z": "15aa9154d475a501",
+        "name": "debug 11",
         "active": true,
         "tosidebar": true,
         "console": false,
@@ -40,34 +41,34 @@
         "complete": "false",
         "statusVal": "",
         "statusType": "auto",
-        "x": 500,
-        "y": 160,
+        "x": 720,
+        "y": 240,
         "wires": []
     },
     {
-        "id": "e610e4a1c0625b74",
+        "id": "d7a3bcd82a80ecad",
         "type": "postgresql",
-        "z": "55f5b3a3f1390ea8",
+        "z": "15aa9154d475a501",
         "name": "",
-        "query": "INSERT INTO sensor_details (sensor_id, user_id, value) VALUES (1,1, {{{msg.payload}}});",
-        "postgreSQLConfig": "3cd515a78cadaa56",
+        "query": "INSERT INTO sensor_details (sensor_id, user_id, value) VALUES (2,1, {{{msg.payload}}});",
+        "postgreSQLConfig": "360fe317051e6282",
         "split": false,
         "rowsPerMsg": 1,
         "outputs": 1,
-        "x": 330,
-        "y": 160,
+        "x": 550,
+        "y": 240,
         "wires": [
             [
-                "3872f9968d8616aa"
+                "bc0f1c006bd83e28"
             ]
         ]
     },
     {
-        "id": "67b4ed67127f98b3",
+        "id": "819217257c9616a1",
         "type": "mqtt in",
-        "z": "55f5b3a3f1390ea8",
+        "z": "15aa9154d475a501",
         "name": "",
-        "topic": "prgs/boton",
+        "topic": "sensor/gas",
         "qos": "2",
         "datatype": "auto-detect",
         "broker": "8cbfcdb39f5a3db7",
@@ -75,18 +76,132 @@
         "rap": true,
         "rh": 0,
         "inputs": 0,
-        "x": 980,
-        "y": 340,
+        "x": 340,
+        "y": 320,
         "wires": [
             [
-                "92235d7a949062bc"
+                "e89144d64dc121eb",
+                "131e05e5119fe84c"
             ]
         ]
     },
     {
-        "id": "e4131bcc0d017521",
+        "id": "131e05e5119fe84c",
         "type": "debug",
-        "z": "55f5b3a3f1390ea8",
+        "z": "15aa9154d475a501",
+        "name": "debug 1",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 740,
+        "y": 320,
+        "wires": []
+    },
+    {
+        "id": "e89144d64dc121eb",
+        "type": "postgresql",
+        "z": "15aa9154d475a501",
+        "name": "",
+        "query": "INSERT INTO sensor_details (sensor_id, user_id, value) VALUES (3,1, {{{msg.payload}}});",
+        "postgreSQLConfig": "360fe317051e6282",
+        "split": false,
+        "rowsPerMsg": 1,
+        "outputs": 1,
+        "x": 570,
+        "y": 320,
+        "wires": [
+            [
+                "131e05e5119fe84c"
+            ]
+        ]
+    },
+    {
+        "id": "6781ab812a36eb64",
+        "type": "mqtt in",
+        "z": "15aa9154d475a501",
+        "name": "",
+        "topic": "joystick/button",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "8cbfcdb39f5a3db7",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 330,
+        "y": 140,
+        "wires": [
+            [
+                "e5802457c926f8a9",
+                "bd2ee64cb9004ad1"
+            ]
+        ]
+    },
+    {
+        "id": "bd2ee64cb9004ad1",
+        "type": "debug",
+        "z": "15aa9154d475a501",
+        "name": "debug 2",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 720,
+        "y": 140,
+        "wires": []
+    },
+    {
+        "id": "e5802457c926f8a9",
+        "type": "postgresql",
+        "z": "15aa9154d475a501",
+        "name": "",
+        "query": "INSERT INTO actuator_details (actuator_id, user_id, state) VALUES (2,1, {{{msg.payload}}});",
+        "postgreSQLConfig": "360fe317051e6282",
+        "split": false,
+        "rowsPerMsg": 1,
+        "outputs": 1,
+        "x": 550,
+        "y": 140,
+        "wires": [
+            [
+                "bd2ee64cb9004ad1"
+            ]
+        ]
+    },
+    {
+        "id": "b8dad9e222f74467",
+        "type": "mqtt in",
+        "z": "15aa9154d475a501",
+        "name": "",
+        "topic": "sensor/ky021",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "8cbfcdb39f5a3db7",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 330,
+        "y": 480,
+        "wires": [
+            [
+                "cdd1478d3268fbfc",
+                "c30b8c79a8581c7a"
+            ]
+        ]
+    },
+    {
+        "id": "c30b8c79a8581c7a",
+        "type": "debug",
+        "z": "15aa9154d475a501",
         "name": "debug 3",
         "active": true,
         "tosidebar": true,
@@ -95,34 +210,34 @@
         "complete": "false",
         "statusVal": "",
         "statusType": "auto",
-        "x": 1380,
-        "y": 340,
+        "x": 720,
+        "y": 480,
         "wires": []
     },
     {
-        "id": "92235d7a949062bc",
+        "id": "cdd1478d3268fbfc",
         "type": "postgresql",
-        "z": "55f5b3a3f1390ea8",
+        "z": "15aa9154d475a501",
         "name": "",
-        "query": "INSERT INTO sensor_details (sensor_id, user_id, value) VALUES (3,1, {{{msg.payload}}});",
-        "postgreSQLConfig": "3cd515a78cadaa56",
+        "query": "INSERT INTO sensor_details (sensor_id, user_id, value) VALUES (4,1, {{{msg.payload}}});",
+        "postgreSQLConfig": "360fe317051e6282",
         "split": false,
         "rowsPerMsg": 1,
         "outputs": 1,
-        "x": 1210,
-        "y": 340,
+        "x": 550,
+        "y": 480,
         "wires": [
             [
-                "e4131bcc0d017521"
+                "c30b8c79a8581c7a"
             ]
         ]
     },
     {
-        "id": "204ae0dcd81c8fd3",
+        "id": "06e66a9094385b34",
         "type": "mqtt in",
-        "z": "55f5b3a3f1390ea8",
+        "z": "15aa9154d475a501",
         "name": "",
-        "topic": "prgs/laserr",
+        "topic": "sensor/gas135",
         "qos": "2",
         "datatype": "auto-detect",
         "broker": "8cbfcdb39f5a3db7",
@@ -130,18 +245,19 @@
         "rap": true,
         "rh": 0,
         "inputs": 0,
-        "x": 100,
-        "y": 400,
+        "x": 460,
+        "y": 600,
         "wires": [
             [
-                "11453bfb6d7d8639"
+                "64f0f97cdf3fab9f",
+                "eea3cc6b7b4b94a4"
             ]
         ]
     },
     {
-        "id": "a5cc357c17362309",
+        "id": "eea3cc6b7b4b94a4",
         "type": "debug",
-        "z": "55f5b3a3f1390ea8",
+        "z": "15aa9154d475a501",
         "name": "debug 4",
         "active": true,
         "tosidebar": true,
@@ -150,34 +266,34 @@
         "complete": "false",
         "statusVal": "",
         "statusType": "auto",
-        "x": 500,
-        "y": 400,
+        "x": 840,
+        "y": 600,
         "wires": []
     },
     {
-        "id": "11453bfb6d7d8639",
+        "id": "64f0f97cdf3fab9f",
         "type": "postgresql",
-        "z": "55f5b3a3f1390ea8",
+        "z": "15aa9154d475a501",
         "name": "",
-        "query": "INSERT INTO actuator_details (actuator_id, user_id, state) VALUES (3,1, {{{msg.payload}}});",
-        "postgreSQLConfig": "3cd515a78cadaa56",
+        "query": "INSERT INTO sensor_details (sensor_id, user_id, value) VALUES (5,1, {{{msg.payload}}});",
+        "postgreSQLConfig": "360fe317051e6282",
         "split": false,
         "rowsPerMsg": 1,
         "outputs": 1,
-        "x": 330,
-        "y": 400,
+        "x": 670,
+        "y": 600,
         "wires": [
             [
-                "a5cc357c17362309"
+                "eea3cc6b7b4b94a4"
             ]
         ]
     },
     {
-        "id": "0fb901c92f2afb2e",
+        "id": "b5896177c0f5e655",
         "type": "mqtt in",
-        "z": "55f5b3a3f1390ea8",
+        "z": "15aa9154d475a501",
         "name": "",
-        "topic": "prgs/inclinacion",
+        "topic": "actuador/ky022",
         "qos": "2",
         "datatype": "auto-detect",
         "broker": "8cbfcdb39f5a3db7",
@@ -185,18 +301,19 @@
         "rap": true,
         "rh": 0,
         "inputs": 0,
-        "x": 120,
-        "y": 220,
+        "x": 340,
+        "y": 60,
         "wires": [
             [
-                "e3984328f8f4acb0"
+                "63ba00af50234aec",
+                "798c3a5d91013a55"
             ]
         ]
     },
     {
-        "id": "d6c6583f11574554",
+        "id": "798c3a5d91013a55",
         "type": "debug",
-        "z": "55f5b3a3f1390ea8",
+        "z": "15aa9154d475a501",
         "name": "debug 5",
         "active": true,
         "tosidebar": true,
@@ -206,34 +323,34 @@
         "targetType": "msg",
         "statusVal": "",
         "statusType": "auto",
-        "x": 500,
-        "y": 220,
+        "x": 720,
+        "y": 60,
         "wires": []
     },
     {
-        "id": "e3984328f8f4acb0",
+        "id": "63ba00af50234aec",
         "type": "postgresql",
-        "z": "55f5b3a3f1390ea8",
+        "z": "15aa9154d475a501",
         "name": "",
-        "query": "INSERT INTO sensor_details (sensor_id, user_id, value) VALUES (4,1, {{{msg.payload}}});",
-        "postgreSQLConfig": "3cd515a78cadaa56",
+        "query": "INSERT INTO actuator_details (actuator_id, user_id, state) VALUES (3,1, {{{msg.payload}}});",
+        "postgreSQLConfig": "360fe317051e6282",
         "split": false,
         "rowsPerMsg": 1,
         "outputs": 1,
-        "x": 330,
-        "y": 220,
+        "x": 550,
+        "y": 60,
         "wires": [
             [
-                "d6c6583f11574554"
+                "798c3a5d91013a55"
             ]
         ]
     },
     {
-        "id": "250b055aa9ace246",
+        "id": "c697dfdb6e63e46e",
         "type": "mqtt in",
-        "z": "55f5b3a3f1390ea8",
+        "z": "15aa9154d475a501",
         "name": "",
-        "topic": "prgs/led2",
+        "topic": "sensor/flama",
         "qos": "2",
         "datatype": "auto-detect",
         "broker": "8cbfcdb39f5a3db7",
@@ -241,18 +358,19 @@
         "rap": true,
         "rh": 0,
         "inputs": 0,
-        "x": 980,
-        "y": 160,
+        "x": 310,
+        "y": 720,
         "wires": [
             [
-                "cf20d5f68047b792"
+                "91b07b48f8bc82f1",
+                "d0ee9787bdbb0fc6"
             ]
         ]
     },
     {
-        "id": "e59aedbba3a6fc23",
+        "id": "d0ee9787bdbb0fc6",
         "type": "debug",
-        "z": "55f5b3a3f1390ea8",
+        "z": "15aa9154d475a501",
         "name": "debug 6",
         "active": true,
         "tosidebar": true,
@@ -261,34 +379,34 @@
         "complete": "false",
         "statusVal": "",
         "statusType": "auto",
-        "x": 1380,
-        "y": 160,
+        "x": 700,
+        "y": 720,
         "wires": []
     },
     {
-        "id": "cf20d5f68047b792",
+        "id": "91b07b48f8bc82f1",
         "type": "postgresql",
-        "z": "55f5b3a3f1390ea8",
-        "name": "",
-        "query": "INSERT INTO actuator_details (actuator_id, user_id, state) VALUES (4,1, {{{msg.payload}}});",
-        "postgreSQLConfig": "3cd515a78cadaa56",
+        "z": "15aa9154d475a501",
+        "name": "flama",
+        "query": "INSERT INTO sensor_details (sensor_id, user_id, value) VALUES (6,1, {{{msg.payload}}});",
+        "postgreSQLConfig": "360fe317051e6282",
         "split": false,
         "rowsPerMsg": 1,
         "outputs": 1,
-        "x": 1210,
-        "y": 160,
+        "x": 510,
+        "y": 720,
         "wires": [
             [
-                "e59aedbba3a6fc23"
+                "d0ee9787bdbb0fc6"
             ]
         ]
     },
     {
-        "id": "ad8271a392b52204",
+        "id": "183ff4449dca297b",
         "type": "mqtt in",
-        "z": "55f5b3a3f1390ea8",
+        "z": "15aa9154d475a501",
         "name": "",
-        "topic": "prgs/temperatura",
+        "topic": "sensor/impacto",
         "qos": "2",
         "datatype": "auto-detect",
         "broker": "8cbfcdb39f5a3db7",
@@ -296,55 +414,55 @@
         "rap": true,
         "rh": 0,
         "inputs": 0,
-        "x": 1000,
-        "y": 400,
+        "x": 320,
+        "y": 840,
         "wires": [
             [
-                "b5b8127e98ba175f"
+                "49ba9e97f19463af",
+                "98a9413b5ff3cd7a"
             ]
         ]
     },
     {
-        "id": "612a02a838b50507",
+        "id": "98a9413b5ff3cd7a",
         "type": "debug",
-        "z": "55f5b3a3f1390ea8",
+        "z": "15aa9154d475a501",
         "name": "debug 7",
         "active": true,
         "tosidebar": true,
         "console": false,
         "tostatus": false,
-        "complete": "payload",
-        "targetType": "msg",
+        "complete": "false",
         "statusVal": "",
         "statusType": "auto",
-        "x": 1380,
-        "y": 400,
+        "x": 700,
+        "y": 840,
         "wires": []
     },
     {
-        "id": "b5b8127e98ba175f",
+        "id": "49ba9e97f19463af",
         "type": "postgresql",
-        "z": "55f5b3a3f1390ea8",
-        "name": "",
-        "query": "INSERT INTO sensor_details (sensor_id, user_id, value) VALUES (6,1, {{{msg.payload}}});",
-        "postgreSQLConfig": "3cd515a78cadaa56",
+        "z": "15aa9154d475a501",
+        "name": "impacto",
+        "query": "INSERT INTO sensor_details (sensor_id, user_id, value) VALUES (8,1, {{{msg.payload}}});",
+        "postgreSQLConfig": "360fe317051e6282",
         "split": false,
         "rowsPerMsg": 1,
         "outputs": 1,
-        "x": 1210,
-        "y": 400,
+        "x": 520,
+        "y": 840,
         "wires": [
             [
-                "612a02a838b50507"
+                "98a9413b5ff3cd7a"
             ]
         ]
     },
     {
-        "id": "943beef7f05df4aa",
+        "id": "57cf6203ef3e6398",
         "type": "mqtt in",
-        "z": "55f5b3a3f1390ea8",
+        "z": "15aa9154d475a501",
         "name": "",
-        "topic": "prgs/vibracion",
+        "topic": "actuador/ky025",
         "qos": "2",
         "datatype": "auto-detect",
         "broker": "8cbfcdb39f5a3db7",
@@ -352,18 +470,19 @@
         "rap": true,
         "rh": 0,
         "inputs": 0,
-        "x": 990,
-        "y": 460,
+        "x": 320,
+        "y": 940,
         "wires": [
             [
-                "f552c6f3df9d6c2b"
+                "15005512bfd1256e",
+                "0b4f6f12c63ba367"
             ]
         ]
     },
     {
-        "id": "8f36d889f67509d1",
+        "id": "0b4f6f12c63ba367",
         "type": "debug",
-        "z": "55f5b3a3f1390ea8",
+        "z": "15aa9154d475a501",
         "name": "debug 8",
         "active": true,
         "tosidebar": true,
@@ -373,34 +492,34 @@
         "targetType": "msg",
         "statusVal": "",
         "statusType": "auto",
-        "x": 1380,
-        "y": 460,
+        "x": 700,
+        "y": 940,
         "wires": []
     },
     {
-        "id": "f552c6f3df9d6c2b",
+        "id": "15005512bfd1256e",
         "type": "postgresql",
-        "z": "55f5b3a3f1390ea8",
-        "name": "",
-        "query": "INSERT INTO sensor_details (sensor_id, user_id, value) VALUES (5,1, {{{msg.payload}}});",
-        "postgreSQLConfig": "3cd515a78cadaa56",
+        "z": "15aa9154d475a501",
+        "name": "ky025",
+        "query": "INSERT INTO actuator_details (actuator_id, user_id, state) VALUES (4,1, {{{msg.payload}}});",
+        "postgreSQLConfig": "360fe317051e6282",
         "split": false,
         "rowsPerMsg": 1,
         "outputs": 1,
-        "x": 1210,
-        "y": 460,
+        "x": 510,
+        "y": 940,
         "wires": [
             [
-                "8f36d889f67509d1"
+                "0b4f6f12c63ba367"
             ]
         ]
     },
     {
-        "id": "6fca5bc646e3206a",
+        "id": "132573a7b68ce35b",
         "type": "mqtt in",
-        "z": "55f5b3a3f1390ea8",
+        "z": "15aa9154d475a501",
         "name": "",
-        "topic": "prgs/temdigital",
+        "topic": "sensor/mq7",
         "qos": "2",
         "datatype": "auto-detect",
         "broker": "8cbfcdb39f5a3db7",
@@ -408,187 +527,20 @@
         "rap": true,
         "rh": 0,
         "inputs": 0,
-        "x": 1000,
-        "y": 280,
+        "x": 290,
+        "y": 1040,
         "wires": [
             [
-                "c4d30d2127ba1b94"
+                "ea55c71273b2530f",
+                "f6757d59a9549be7"
             ]
         ]
     },
     {
-        "id": "1ff317287c81394c",
+        "id": "f6757d59a9549be7",
         "type": "debug",
-        "z": "55f5b3a3f1390ea8",
-        "name": "debug 1",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "payload",
-        "targetType": "msg",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 1380,
-        "y": 280,
-        "wires": []
-    },
-    {
-        "id": "c4d30d2127ba1b94",
-        "type": "postgresql",
-        "z": "55f5b3a3f1390ea8",
-        "name": "",
-        "query": "INSERT INTO sensor_details (sensor_id, user_id, value) VALUES (39,1, {{{msg.payload}}});",
-        "postgreSQLConfig": "3cd515a78cadaa56",
-        "split": false,
-        "rowsPerMsg": 1,
-        "outputs": 1,
-        "x": 1210,
-        "y": 280,
-        "wires": [
-            [
-                "1ff317287c81394c"
-            ]
-        ]
-    },
-    {
-        "id": "a2a2dd33f38dd6ff",
-        "type": "mqtt in",
-        "z": "55f5b3a3f1390ea8",
-        "name": "",
-        "topic": "prgs/agua",
-        "qos": "2",
-        "datatype": "auto-detect",
-        "broker": "8cbfcdb39f5a3db7",
-        "nl": false,
-        "rap": true,
-        "rh": 0,
-        "inputs": 0,
-        "x": 100,
-        "y": 280,
-        "wires": [
-            [
-                "3a619b96f03443d1"
-            ]
-        ]
-    },
-    {
-        "id": "c96b076a89afe12a",
-        "type": "debug",
-        "z": "55f5b3a3f1390ea8",
+        "z": "15aa9154d475a501",
         "name": "debug 9",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "payload",
-        "targetType": "msg",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 500,
-        "y": 280,
-        "wires": []
-    },
-    {
-        "id": "3a619b96f03443d1",
-        "type": "postgresql",
-        "z": "55f5b3a3f1390ea8",
-        "name": "",
-        "query": "INSERT INTO sensor_details (sensor_id, user_id, value) VALUES (40,1, {{{msg.payload}}});",
-        "postgreSQLConfig": "3cd515a78cadaa56",
-        "split": false,
-        "rowsPerMsg": 1,
-        "outputs": 1,
-        "x": 330,
-        "y": 280,
-        "wires": [
-            [
-                "c96b076a89afe12a"
-            ]
-        ]
-    },
-    {
-        "id": "33564a336cd09c37",
-        "type": "mqtt in",
-        "z": "55f5b3a3f1390ea8",
-        "name": "",
-        "topic": "prgs/fotointe",
-        "qos": "2",
-        "datatype": "auto-detect",
-        "broker": "8cbfcdb39f5a3db7",
-        "nl": false,
-        "rap": true,
-        "rh": 0,
-        "inputs": 0,
-        "x": 990,
-        "y": 220,
-        "wires": [
-            [
-                "3534c022d2260925"
-            ]
-        ]
-    },
-    {
-        "id": "f2ae6ae521ad6b09",
-        "type": "debug",
-        "z": "55f5b3a3f1390ea8",
-        "name": "debug 10",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "payload",
-        "targetType": "msg",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 1380,
-        "y": 220,
-        "wires": []
-    },
-    {
-        "id": "3534c022d2260925",
-        "type": "postgresql",
-        "z": "55f5b3a3f1390ea8",
-        "name": "",
-        "query": "INSERT INTO sensor_details (sensor_id, user_id, value) VALUES (41,1, {{{msg.payload}}});",
-        "postgreSQLConfig": "3cd515a78cadaa56",
-        "split": false,
-        "rowsPerMsg": 1,
-        "outputs": 1,
-        "x": 1210,
-        "y": 220,
-        "wires": [
-            [
-                "f2ae6ae521ad6b09"
-            ]
-        ]
-    },
-    {
-        "id": "95e4b1c8ec001e61",
-        "type": "mqtt in",
-        "z": "55f5b3a3f1390ea8",
-        "name": "",
-        "topic": "prgs/duracion",
-        "qos": "2",
-        "datatype": "auto-detect",
-        "broker": "8cbfcdb39f5a3db7",
-        "nl": false,
-        "rap": true,
-        "rh": 0,
-        "inputs": 0,
-        "x": 110,
-        "y": 460,
-        "wires": [
-            [
-                "377cc798f8bc66e3"
-            ]
-        ]
-    },
-    {
-        "id": "af376dd7647ac498",
-        "type": "debug",
-        "z": "55f5b3a3f1390ea8",
-        "name": "debug 11",
         "active": true,
         "tosidebar": true,
         "console": false,
@@ -596,34 +548,34 @@
         "complete": "false",
         "statusVal": "",
         "statusType": "auto",
-        "x": 500,
-        "y": 460,
+        "x": 680,
+        "y": 1040,
         "wires": []
     },
     {
-        "id": "377cc798f8bc66e3",
+        "id": "ea55c71273b2530f",
         "type": "postgresql",
-        "z": "55f5b3a3f1390ea8",
+        "z": "15aa9154d475a501",
         "name": "",
-        "query": "INSERT INTO sensor_details (sensor_id, user_id, value) VALUES (42,1, {{{msg.payload}}});",
-        "postgreSQLConfig": "3cd515a78cadaa56",
+        "query": "INSERT INTO sensor_details (sensor_id, user_id, value) VALUES (7,1, {{{msg.payload}}});",
+        "postgreSQLConfig": "360fe317051e6282",
         "split": false,
         "rowsPerMsg": 1,
         "outputs": 1,
-        "x": 330,
-        "y": 460,
+        "x": 510,
+        "y": 1040,
         "wires": [
             [
-                "af376dd7647ac498"
+                "f6757d59a9549be7"
             ]
         ]
     },
     {
-        "id": "659f813f82accab1",
+        "id": "fc097e70425e5c64",
         "type": "mqtt in",
-        "z": "55f5b3a3f1390ea8",
+        "z": "15aa9154d475a501",
         "name": "",
-        "topic": "prgs/rgb",
+        "topic": "sensor/obstaculo",
         "qos": "2",
         "datatype": "auto-detect",
         "broker": "8cbfcdb39f5a3db7",
@@ -631,18 +583,75 @@
         "rap": true,
         "rh": 0,
         "inputs": 0,
-        "x": 100,
-        "y": 340,
+        "x": 300,
+        "y": 1160,
         "wires": [
             [
-                "0435ba5257897df5"
+                "20d5839d9eb0947b",
+                "93a5f34210b3ca07"
             ]
         ]
     },
     {
-        "id": "b21ce0353af30cc3",
+        "id": "93a5f34210b3ca07",
         "type": "debug",
-        "z": "55f5b3a3f1390ea8",
+        "z": "15aa9154d475a501",
+        "name": "debug 10",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 680,
+        "y": 1160,
+        "wires": []
+    },
+    {
+        "id": "20d5839d9eb0947b",
+        "type": "postgresql",
+        "z": "15aa9154d475a501",
+        "name": "",
+        "query": "INSERT INTO sensor_details (sensor_id, user_id, value) VALUES (9,1, {{{msg.payload}}});",
+        "postgreSQLConfig": "360fe317051e6282",
+        "split": false,
+        "rowsPerMsg": 1,
+        "outputs": 1,
+        "x": 510,
+        "y": 1160,
+        "wires": [
+            [
+                "93a5f34210b3ca07"
+            ]
+        ]
+    },
+    {
+        "id": "6cd8bdd740cfa48f",
+        "type": "mqtt in",
+        "z": "15aa9154d475a501",
+        "name": "",
+        "topic": "sensor/linea",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "8cbfcdb39f5a3db7",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 310,
+        "y": 1260,
+        "wires": [
+            [
+                "47c627f90fb92535",
+                "bd5c435cf051b001"
+            ]
+        ]
+    },
+    {
+        "id": "bd5c435cf051b001",
+        "type": "debug",
+        "z": "15aa9154d475a501",
         "name": "debug 12",
         "active": true,
         "tosidebar": true,
@@ -651,34 +660,34 @@
         "complete": "false",
         "statusVal": "",
         "statusType": "auto",
-        "x": 500,
-        "y": 340,
+        "x": 700,
+        "y": 1260,
         "wires": []
     },
     {
-        "id": "0435ba5257897df5",
+        "id": "47c627f90fb92535",
         "type": "postgresql",
-        "z": "55f5b3a3f1390ea8",
+        "z": "15aa9154d475a501",
         "name": "",
-        "query": "INSERT INTO actuator_details (actuator_id, user_id, state) VALUES (5,1, {{{msg.payload}}});",
-        "postgreSQLConfig": "3cd515a78cadaa56",
+        "query": "INSERT INTO sensor_details (sensor_id, user_id, value) VALUES (10,1, {{{msg.payload}}});",
+        "postgreSQLConfig": "360fe317051e6282",
         "split": false,
         "rowsPerMsg": 1,
         "outputs": 1,
-        "x": 330,
-        "y": 340,
+        "x": 530,
+        "y": 1260,
         "wires": [
             [
-                "b21ce0353af30cc3"
+                "bd5c435cf051b001"
             ]
         ]
     },
     {
-        "id": "7b43519809a57359",
+        "id": "9813f8dc8b83e459",
         "type": "mqtt in",
-        "z": "55f5b3a3f1390ea8",
+        "z": "15aa9154d475a501",
         "name": "",
-        "topic": "prgs/mq5",
+        "topic": "actuador/color7",
         "qos": "2",
         "datatype": "auto-detect",
         "broker": "8cbfcdb39f5a3db7",
@@ -686,204 +695,20 @@
         "rap": true,
         "rh": 0,
         "inputs": 0,
-        "x": 1900,
-        "y": 160,
+        "x": 320,
+        "y": 1400,
         "wires": [
             [
-                "fb0306c6b7b7be58"
+                "920c0abc473d335f",
+                "89ec9d71972354c0"
             ]
         ]
     },
     {
-        "id": "3bd1ce9a4fa85b81",
+        "id": "89ec9d71972354c0",
         "type": "debug",
-        "z": "55f5b3a3f1390ea8",
+        "z": "15aa9154d475a501",
         "name": "debug 13",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "false",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 2300,
-        "y": 160,
-        "wires": []
-    },
-    {
-        "id": "fb0306c6b7b7be58",
-        "type": "postgresql",
-        "z": "55f5b3a3f1390ea8",
-        "name": "",
-        "query": "INSERT INTO sensor_details (sensor_id, user_id, value) VALUES (43,1, {{{msg.payload}}});",
-        "postgreSQLConfig": "3cd515a78cadaa56",
-        "split": false,
-        "rowsPerMsg": 1,
-        "outputs": 1,
-        "x": 2130,
-        "y": 160,
-        "wires": [
-            [
-                "3bd1ce9a4fa85b81"
-            ]
-        ]
-    },
-    {
-        "id": "1fe64095d70619e6",
-        "type": "comment",
-        "z": "55f5b3a3f1390ea8",
-        "name": "Jesus",
-        "info": "",
-        "x": 670,
-        "y": 160,
-        "wires": []
-    },
-    {
-        "id": "13d0818b8383ac75",
-        "type": "comment",
-        "z": "55f5b3a3f1390ea8",
-        "name": "Roy",
-        "info": "",
-        "x": 1550,
-        "y": 340,
-        "wires": []
-    },
-    {
-        "id": "c51c7bd708c3b91f",
-        "type": "comment",
-        "z": "55f5b3a3f1390ea8",
-        "name": "Jesus",
-        "info": "",
-        "x": 670,
-        "y": 220,
-        "wires": []
-    },
-    {
-        "id": "9ff65d91f88f298a",
-        "type": "comment",
-        "z": "55f5b3a3f1390ea8",
-        "name": "Roy",
-        "info": "",
-        "x": 1550,
-        "y": 400,
-        "wires": []
-    },
-    {
-        "id": "2fc3ce4a0c89ddb2",
-        "type": "comment",
-        "z": "55f5b3a3f1390ea8",
-        "name": "Roy",
-        "info": "",
-        "x": 1550,
-        "y": 460,
-        "wires": []
-    },
-    {
-        "id": "db473ed995a13262",
-        "type": "comment",
-        "z": "55f5b3a3f1390ea8",
-        "name": "Jesus",
-        "info": "",
-        "x": 670,
-        "y": 280,
-        "wires": []
-    },
-    {
-        "id": "c53af465ac698bbc",
-        "type": "comment",
-        "z": "55f5b3a3f1390ea8",
-        "name": "Roy",
-        "info": "",
-        "x": 1550,
-        "y": 280,
-        "wires": []
-    },
-    {
-        "id": "25be56106683221f",
-        "type": "comment",
-        "z": "55f5b3a3f1390ea8",
-        "name": "Jesus",
-        "info": "",
-        "x": 670,
-        "y": 460,
-        "wires": []
-    },
-    {
-        "id": "51dfaa022e01538c",
-        "type": "comment",
-        "z": "55f5b3a3f1390ea8",
-        "name": "Jesus",
-        "info": "",
-        "x": 670,
-        "y": 400,
-        "wires": []
-    },
-    {
-        "id": "e874b46f87694f75",
-        "type": "comment",
-        "z": "55f5b3a3f1390ea8",
-        "name": "Roy",
-        "info": "",
-        "x": 1550,
-        "y": 160,
-        "wires": []
-    },
-    {
-        "id": "b717f24128731d77",
-        "type": "comment",
-        "z": "55f5b3a3f1390ea8",
-        "name": "Roy",
-        "info": "",
-        "x": 1550,
-        "y": 220,
-        "wires": []
-    },
-    {
-        "id": "1d383dbc4688e65c",
-        "type": "comment",
-        "z": "55f5b3a3f1390ea8",
-        "name": "Jesus",
-        "info": "",
-        "x": 670,
-        "y": 340,
-        "wires": []
-    },
-    {
-        "id": "e3515bae8ccc863f",
-        "type": "comment",
-        "z": "55f5b3a3f1390ea8",
-        "name": "Roy",
-        "info": "",
-        "x": 2470,
-        "y": 160,
-        "wires": []
-    },
-    {
-        "id": "504bcbee5e65b25d",
-        "type": "mqtt in",
-        "z": "55f5b3a3f1390ea8",
-        "name": "",
-        "topic": "prgs/mq9",
-        "qos": "2",
-        "datatype": "auto-detect",
-        "broker": "8cbfcdb39f5a3db7",
-        "nl": false,
-        "rap": true,
-        "rh": 0,
-        "inputs": 0,
-        "x": 1900,
-        "y": 220,
-        "wires": [
-            [
-                "7f21ed1a9fe43fbd"
-            ]
-        ]
-    },
-    {
-        "id": "682ccfe9f94b129d",
-        "type": "debug",
-        "z": "55f5b3a3f1390ea8",
-        "name": "debug 15",
         "active": true,
         "tosidebar": true,
         "console": false,
@@ -892,44 +717,34 @@
         "targetType": "msg",
         "statusVal": "",
         "statusType": "auto",
-        "x": 2300,
-        "y": 220,
+        "x": 700,
+        "y": 1400,
         "wires": []
     },
     {
-        "id": "7f21ed1a9fe43fbd",
+        "id": "920c0abc473d335f",
         "type": "postgresql",
-        "z": "55f5b3a3f1390ea8",
-        "name": "",
-        "query": "INSERT INTO sensor_details (sensor_id, user_id, value) VALUES (45,1, {{{msg.payload}}});",
-        "postgreSQLConfig": "3cd515a78cadaa56",
+        "z": "15aa9154d475a501",
+        "name": "ky034",
+        "query": "INSERT INTO actuator_details (actuator_id, user_id, state) VALUES (5,1, {{{msg.payload}}});",
+        "postgreSQLConfig": "360fe317051e6282",
         "split": false,
         "rowsPerMsg": 1,
         "outputs": 1,
-        "x": 2130,
-        "y": 220,
+        "x": 510,
+        "y": 1400,
         "wires": [
             [
-                "682ccfe9f94b129d"
+                "89ec9d71972354c0"
             ]
         ]
     },
     {
-        "id": "3ff4913e47c652c0",
-        "type": "comment",
-        "z": "55f5b3a3f1390ea8",
-        "name": "Roy",
-        "info": "",
-        "x": 2470,
-        "y": 220,
-        "wires": []
-    },
-    {
-        "id": "30e37bd9962e932e",
+        "id": "243590fae999974c",
         "type": "mqtt in",
-        "z": "55f5b3a3f1390ea8",
+        "z": "15aa9154d475a501",
         "name": "",
-        "topic": "prgs/magnetico",
+        "topic": "actuador/vibracion",
         "qos": "2",
         "datatype": "auto-detect",
         "broker": "8cbfcdb39f5a3db7",
@@ -937,18 +752,132 @@
         "rap": true,
         "rh": 0,
         "inputs": 0,
-        "x": 120,
-        "y": 520,
+        "x": 330,
+        "y": 1520,
         "wires": [
             [
-                "54f487f3032d4749"
+                "df0f8df3bdbf2e99",
+                "92d504a6d17c3438"
             ]
         ]
     },
     {
-        "id": "d5e89c5f35b14fd0",
+        "id": "92d504a6d17c3438",
         "type": "debug",
-        "z": "55f5b3a3f1390ea8",
+        "z": "15aa9154d475a501",
+        "name": "debug 14",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 700,
+        "y": 1520,
+        "wires": []
+    },
+    {
+        "id": "df0f8df3bdbf2e99",
+        "type": "postgresql",
+        "z": "15aa9154d475a501",
+        "name": "ky034",
+        "query": "INSERT INTO actuator_details (actuator_id, user_id, state) VALUES (6,1, {{{msg.payload}}});",
+        "postgreSQLConfig": "360fe317051e6282",
+        "split": false,
+        "rowsPerMsg": 1,
+        "outputs": 1,
+        "x": 510,
+        "y": 1520,
+        "wires": [
+            [
+                "92d504a6d17c3438"
+            ]
+        ]
+    },
+    {
+        "id": "40f3d2e17117d3ae",
+        "type": "mqtt in",
+        "z": "15aa9154d475a501",
+        "name": "",
+        "topic": "sensor/tactil",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "8cbfcdb39f5a3db7",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 310,
+        "y": 1640,
+        "wires": [
+            [
+                "1ce9ed1a39b35d18",
+                "8e3a36f461863cf9"
+            ]
+        ]
+    },
+    {
+        "id": "8e3a36f461863cf9",
+        "type": "debug",
+        "z": "15aa9154d475a501",
+        "name": "debug 15",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 700,
+        "y": 1640,
+        "wires": []
+    },
+    {
+        "id": "1ce9ed1a39b35d18",
+        "type": "postgresql",
+        "z": "15aa9154d475a501",
+        "name": "",
+        "query": "INSERT INTO sensor_details (sensor_id, user_id, value) VALUES (12,1, {{{msg.payload}}});",
+        "postgreSQLConfig": "360fe317051e6282",
+        "split": false,
+        "rowsPerMsg": 1,
+        "outputs": 1,
+        "x": 530,
+        "y": 1640,
+        "wires": [
+            [
+                "8e3a36f461863cf9"
+            ]
+        ]
+    },
+    {
+        "id": "5bfde7e1e5216194",
+        "type": "mqtt in",
+        "z": "15aa9154d475a501",
+        "name": "",
+        "topic": "sensor/pulso",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "8cbfcdb39f5a3db7",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 330,
+        "y": 1740,
+        "wires": [
+            [
+                "2ee8811538784514",
+                "0f75066468b0688c"
+            ]
+        ]
+    },
+    {
+        "id": "0f75066468b0688c",
+        "type": "debug",
+        "z": "15aa9154d475a501",
         "name": "debug 16",
         "active": true,
         "tosidebar": true,
@@ -957,44 +886,34 @@
         "complete": "false",
         "statusVal": "",
         "statusType": "auto",
-        "x": 500,
-        "y": 520,
+        "x": 720,
+        "y": 1740,
         "wires": []
     },
     {
-        "id": "54f487f3032d4749",
+        "id": "2ee8811538784514",
         "type": "postgresql",
-        "z": "55f5b3a3f1390ea8",
+        "z": "15aa9154d475a501",
         "name": "",
-        "query": "INSERT INTO sensor_details (sensor_id, user_id, value) VALUES (46,1, {{{msg.payload}}});",
-        "postgreSQLConfig": "3cd515a78cadaa56",
+        "query": "INSERT INTO sensor_details (sensor_id, user_id, value) VALUES (13,1, {{{msg.payload}}});",
+        "postgreSQLConfig": "360fe317051e6282",
         "split": false,
         "rowsPerMsg": 1,
         "outputs": 1,
-        "x": 330,
-        "y": 520,
+        "x": 550,
+        "y": 1740,
         "wires": [
             [
-                "d5e89c5f35b14fd0"
+                "0f75066468b0688c"
             ]
         ]
     },
     {
-        "id": "1beb32e10f484816",
-        "type": "comment",
-        "z": "55f5b3a3f1390ea8",
-        "name": "Jesus",
-        "info": "",
-        "x": 670,
-        "y": 520,
-        "wires": []
-    },
-    {
-        "id": "735941cc6d195ca4",
+        "id": "bb5478762ed8d3c1",
         "type": "mqtt in",
-        "z": "55f5b3a3f1390ea8",
+        "z": "15aa9154d475a501",
         "name": "",
-        "topic": "prgs/miniinte",
+        "topic": "actuator/encoder",
         "qos": "2",
         "datatype": "auto-detect",
         "broker": "8cbfcdb39f5a3db7",
@@ -1002,64 +921,56 @@
         "rap": true,
         "rh": 0,
         "inputs": 0,
-        "x": 990,
-        "y": 520,
+        "x": 320,
+        "y": 1860,
         "wires": [
             [
-                "a553322d709dd9ed"
+                "04d3a39ee06e12c5",
+                "27d7f8dc0766658d"
             ]
         ]
     },
     {
-        "id": "a692a3ee53ad91a0",
+        "id": "27d7f8dc0766658d",
         "type": "debug",
-        "z": "55f5b3a3f1390ea8",
+        "z": "15aa9154d475a501",
         "name": "debug 17",
         "active": true,
         "tosidebar": true,
         "console": false,
         "tostatus": false,
-        "complete": "false",
+        "complete": "payload",
+        "targetType": "msg",
         "statusVal": "",
         "statusType": "auto",
-        "x": 1380,
-        "y": 520,
+        "x": 700,
+        "y": 1860,
         "wires": []
     },
     {
-        "id": "a553322d709dd9ed",
+        "id": "04d3a39ee06e12c5",
         "type": "postgresql",
-        "z": "55f5b3a3f1390ea8",
-        "name": "",
-        "query": "INSERT INTO actuator_details (actuator_id, user_id, state) VALUES (6,1, {{{msg.payload}}});",
-        "postgreSQLConfig": "3cd515a78cadaa56",
+        "z": "15aa9154d475a501",
+        "name": "encoder",
+        "query": "INSERT INTO actuator_details (actuator_id, user_id, state) VALUES (8,1, {{{msg.payload}}});",
+        "postgreSQLConfig": "360fe317051e6282",
         "split": false,
         "rowsPerMsg": 1,
         "outputs": 1,
-        "x": 1210,
-        "y": 520,
+        "x": 520,
+        "y": 1860,
         "wires": [
             [
-                "a692a3ee53ad91a0"
+                "27d7f8dc0766658d"
             ]
         ]
     },
     {
-        "id": "69819e89f6a59ed3",
-        "type": "comment",
-        "z": "55f5b3a3f1390ea8",
-        "name": "Roy",
-        "info": "",
-        "x": 1550,
-        "y": 520,
-        "wires": []
-    },
-    {
-        "id": "e3660fe44f39ce35",
+        "id": "b77bb3e301d19837",
         "type": "mqtt in",
-        "z": "55f5b3a3f1390ea8",
+        "z": "15aa9154d475a501",
         "name": "",
-        "topic": "prgs/joystick",
+        "topic": "sensor/temperatura",
         "qos": "2",
         "datatype": "auto-detect",
         "broker": "8cbfcdb39f5a3db7",
@@ -1067,18 +978,19 @@
         "rap": true,
         "rh": 0,
         "inputs": 0,
-        "x": 990,
-        "y": 580,
+        "x": 330,
+        "y": 2020,
         "wires": [
             [
-                "60cde3885b63224a"
+                "59bf4f47a86aa060",
+                "8f6fe8563a6ccc05"
             ]
         ]
     },
     {
-        "id": "b7b7b12a9813444b",
+        "id": "8f6fe8563a6ccc05",
         "type": "debug",
-        "z": "55f5b3a3f1390ea8",
+        "z": "15aa9154d475a501",
         "name": "debug 18",
         "active": true,
         "tosidebar": true,
@@ -1087,42 +999,54 @@
         "complete": "false",
         "statusVal": "",
         "statusType": "auto",
-        "x": 1380,
-        "y": 580,
+        "x": 700,
+        "y": 2020,
         "wires": []
     },
     {
-        "id": "60cde3885b63224a",
+        "id": "59bf4f47a86aa060",
         "type": "postgresql",
-        "z": "55f5b3a3f1390ea8",
+        "z": "15aa9154d475a501",
         "name": "",
-        "query": "INSERT INTO actuator_details (actuator_id, user_id, state) VALUES (7,1, {{{msg.payload}}});",
-        "postgreSQLConfig": "3cd515a78cadaa56",
+        "query": "INSERT INTO sensor_details (sensor_id, user_id, value) VALUES (46,1, {{{msg.payload}}});",
+        "postgreSQLConfig": "360fe317051e6282",
         "split": false,
         "rowsPerMsg": 1,
         "outputs": 1,
-        "x": 1210,
-        "y": 580,
+        "x": 530,
+        "y": 2020,
         "wires": [
             [
-                "b7b7b12a9813444b"
+                "8f6fe8563a6ccc05"
             ]
         ]
     },
     {
-        "id": "396a3354793cd5b1",
-        "type": "comment",
-        "z": "55f5b3a3f1390ea8",
-        "name": "Jesus",
-        "info": "",
-        "x": 670,
-        "y": 580,
-        "wires": []
+        "id": "0dea6e482c855b63",
+        "type": "mqtt in",
+        "z": "15aa9154d475a501",
+        "name": "",
+        "topic": "sensor/sonido",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "8cbfcdb39f5a3db7",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 310,
+        "y": 2120,
+        "wires": [
+            [
+                "af90afd612919446",
+                "0b9933f1755d4044"
+            ]
+        ]
     },
     {
-        "id": "da30fa7c1469a358",
+        "id": "0b9933f1755d4044",
         "type": "debug",
-        "z": "55f5b3a3f1390ea8",
+        "z": "15aa9154d475a501",
         "name": "debug 19",
         "active": true,
         "tosidebar": true,
@@ -1131,16 +1055,34 @@
         "complete": "false",
         "statusVal": "",
         "statusType": "auto",
-        "x": 500,
-        "y": 580,
+        "x": 700,
+        "y": 2120,
         "wires": []
     },
     {
-        "id": "983db1c1b03c6b74",
+        "id": "af90afd612919446",
+        "type": "postgresql",
+        "z": "15aa9154d475a501",
+        "name": "KY-038",
+        "query": "INSERT INTO sensor_details (sensor_id, user_id, value) VALUES (47,1, {{{msg.payload}}});",
+        "postgreSQLConfig": "360fe317051e6282",
+        "split": false,
+        "rowsPerMsg": 1,
+        "outputs": 1,
+        "x": 520,
+        "y": 2120,
+        "wires": [
+            [
+                "0b9933f1755d4044"
+            ]
+        ]
+    },
+    {
+        "id": "76c81872815bc9c4",
         "type": "mqtt in",
-        "z": "55f5b3a3f1390ea8",
+        "z": "15aa9154d475a501",
         "name": "",
-        "topic": "prgs/infrarrojorecep",
+        "topic": "sensor/buzzer",
         "qos": "2",
         "datatype": "auto-detect",
         "broker": "8cbfcdb39f5a3db7",
@@ -1148,46 +1090,19 @@
         "rap": true,
         "rh": 0,
         "inputs": 0,
-        "x": 130,
-        "y": 580,
-        "wires": [
-            [
-                "9472c0a448a49613"
-            ]
-        ]
-    },
-    {
-        "id": "9472c0a448a49613",
-        "type": "postgresql",
-        "z": "55f5b3a3f1390ea8",
-        "name": "",
-        "query": "INSERT INTO actuator_details (actuator_id, user_id, state) VALUES (8,1, {{{msg.payload}}});",
-        "postgreSQLConfig": "3cd515a78cadaa56",
-        "split": false,
-        "rowsPerMsg": 1,
-        "outputs": 1,
         "x": 330,
-        "y": 580,
+        "y": 2240,
         "wires": [
             [
-                "da30fa7c1469a358"
+                "1356605538d0ecde",
+                "2306a627e0ec6618"
             ]
         ]
     },
     {
-        "id": "d84ec9d1c7657f0a",
-        "type": "comment",
-        "z": "55f5b3a3f1390ea8",
-        "name": "Roy",
-        "info": "",
-        "x": 1550,
-        "y": 580,
-        "wires": []
-    },
-    {
-        "id": "c43dd2c2c68b3ac2",
+        "id": "2306a627e0ec6618",
         "type": "debug",
-        "z": "55f5b3a3f1390ea8",
+        "z": "15aa9154d475a501",
         "name": "debug 20",
         "active": true,
         "tosidebar": true,
@@ -1196,16 +1111,34 @@
         "complete": "false",
         "statusVal": "",
         "statusType": "auto",
-        "x": 500,
-        "y": 640,
+        "x": 720,
+        "y": 2240,
         "wires": []
     },
     {
-        "id": "af190dd4e8f1c65e",
-        "type": "mqtt in",
-        "z": "55f5b3a3f1390ea8",
+        "id": "1356605538d0ecde",
+        "type": "postgresql",
+        "z": "15aa9154d475a501",
         "name": "",
-        "topic": "prgs/mercurio",
+        "query": "INSERT INTO sensor_details (sensor_id, user_id, value) VALUES (48,1, {{{msg.payload}}});",
+        "postgreSQLConfig": "360fe317051e6282",
+        "split": false,
+        "rowsPerMsg": 1,
+        "outputs": 1,
+        "x": 550,
+        "y": 2240,
+        "wires": [
+            [
+                "2306a627e0ec6618"
+            ]
+        ]
+    },
+    {
+        "id": "171c0685e9092fa1",
+        "type": "mqtt in",
+        "z": "15aa9154d475a501",
+        "name": "",
+        "topic": "sensor/boton",
         "qos": "2",
         "datatype": "auto-detect",
         "broker": "8cbfcdb39f5a3db7",
@@ -1213,46 +1146,19 @@
         "rap": true,
         "rh": 0,
         "inputs": 0,
-        "x": 110,
-        "y": 640,
-        "wires": [
-            [
-                "f336ca03ae5bf84c"
-            ]
-        ]
-    },
-    {
-        "id": "f336ca03ae5bf84c",
-        "type": "postgresql",
-        "z": "55f5b3a3f1390ea8",
-        "name": "",
-        "query": "INSERT INTO actuator_details (actuator_id, user_id, state) VALUES (9,1, {{{msg.payload}}});",
-        "postgreSQLConfig": "3cd515a78cadaa56",
-        "split": false,
-        "rowsPerMsg": 1,
-        "outputs": 1,
         "x": 330,
-        "y": 640,
+        "y": 2360,
         "wires": [
             [
-                "c43dd2c2c68b3ac2"
+                "2e382d1705830802",
+                "d966d10d38f316a1"
             ]
         ]
     },
     {
-        "id": "4575ab5b62169870",
-        "type": "comment",
-        "z": "55f5b3a3f1390ea8",
-        "name": "Jesus",
-        "info": "",
-        "x": 670,
-        "y": 640,
-        "wires": []
-    },
-    {
-        "id": "40966212e53039e0",
+        "id": "d966d10d38f316a1",
         "type": "debug",
-        "z": "55f5b3a3f1390ea8",
+        "z": "15aa9154d475a501",
         "name": "debug 21",
         "active": true,
         "tosidebar": true,
@@ -1261,1859 +1167,33 @@
         "complete": "false",
         "statusVal": "",
         "statusType": "auto",
-        "x": 1380,
-        "y": 640,
+        "x": 720,
+        "y": 2360,
         "wires": []
     },
     {
-        "id": "feee32af526d8f10",
-        "type": "mqtt in",
-        "z": "55f5b3a3f1390ea8",
-        "name": "",
-        "topic": "prgs/inclinacionlumi",
-        "qos": "2",
-        "datatype": "auto-detect",
-        "broker": "8cbfcdb39f5a3db7",
-        "nl": false,
-        "rap": true,
-        "rh": 0,
-        "inputs": 0,
-        "x": 1010,
-        "y": 640,
-        "wires": [
-            [
-                "c7e1a7b1a7ecce27"
-            ]
-        ]
-    },
-    {
-        "id": "c7e1a7b1a7ecce27",
+        "id": "2e382d1705830802",
         "type": "postgresql",
-        "z": "55f5b3a3f1390ea8",
-        "name": "",
-        "query": "INSERT INTO actuator_details (actuator_id, user_id, state) VALUES (10,1, {{{msg.payload}}});",
-        "postgreSQLConfig": "3cd515a78cadaa56",
-        "split": false,
-        "rowsPerMsg": 1,
-        "outputs": 1,
-        "x": 1210,
-        "y": 640,
-        "wires": [
-            [
-                "40966212e53039e0"
-            ]
-        ]
-    },
-    {
-        "id": "195e46ca63c66133",
-        "type": "comment",
-        "z": "55f5b3a3f1390ea8",
-        "name": "Roy",
-        "info": "",
-        "x": 1550,
-        "y": 640,
-        "wires": []
-    },
-    {
-        "id": "03c197433fab77fe",
-        "type": "debug",
-        "z": "55f5b3a3f1390ea8",
-        "name": "debug 22",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "false",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 500,
-        "y": 700,
-        "wires": []
-    },
-    {
-        "id": "9f810ce8e52934e2",
-        "type": "mqtt in",
-        "z": "55f5b3a3f1390ea8",
-        "name": "",
-        "topic": "prgs/ledrgb",
-        "qos": "2",
-        "datatype": "auto-detect",
-        "broker": "8cbfcdb39f5a3db7",
-        "nl": false,
-        "rap": true,
-        "rh": 0,
-        "inputs": 0,
-        "x": 100,
-        "y": 700,
-        "wires": [
-            [
-                "eea745cf24479a89"
-            ]
-        ]
-    },
-    {
-        "id": "eea745cf24479a89",
-        "type": "postgresql",
-        "z": "55f5b3a3f1390ea8",
-        "name": "",
-        "query": "INSERT INTO actuator_details (actuator_id, user_id, state) VALUES (11,1, {{{msg.payload}}});",
-        "postgreSQLConfig": "3cd515a78cadaa56",
-        "split": false,
-        "rowsPerMsg": 1,
-        "outputs": 1,
-        "x": 330,
-        "y": 700,
-        "wires": [
-            [
-                "03c197433fab77fe"
-            ]
-        ]
-    },
-    {
-        "id": "e337b56d712d22f5",
-        "type": "mqtt in",
-        "z": "55f5b3a3f1390ea8",
-        "name": "",
-        "topic": "prgs/hall",
-        "qos": "2",
-        "datatype": "auto-detect",
-        "broker": "8cbfcdb39f5a3db7",
-        "nl": false,
-        "rap": true,
-        "rh": 0,
-        "inputs": 0,
-        "x": 980,
-        "y": 700,
-        "wires": [
-            [
-                "1ddf4df8896b6a59"
-            ]
-        ]
-    },
-    {
-        "id": "f5138a9eec4c923b",
-        "type": "debug",
-        "z": "55f5b3a3f1390ea8",
-        "name": "debug 14",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "false",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 1380,
-        "y": 700,
-        "wires": []
-    },
-    {
-        "id": "1ddf4df8896b6a59",
-        "type": "postgresql",
-        "z": "55f5b3a3f1390ea8",
-        "name": "",
-        "query": "INSERT INTO sensor_details (sensor_id, user_id, value) VALUES (44,1, {{{msg.payload}}});",
-        "postgreSQLConfig": "3cd515a78cadaa56",
-        "split": false,
-        "rowsPerMsg": 1,
-        "outputs": 1,
-        "x": 1210,
-        "y": 700,
-        "wires": [
-            [
-                "f5138a9eec4c923b"
-            ]
-        ]
-    },
-    {
-        "id": "f2120f451e13ed20",
-        "type": "comment",
-        "z": "55f5b3a3f1390ea8",
-        "name": "Roy",
-        "info": "",
-        "x": 1550,
-        "y": 700,
-        "wires": []
-    },
-    {
-        "id": "bbd0983e910c8ef4",
-        "type": "mqtt in",
-        "z": "55f5b3a3f1390ea8",
-        "name": "",
-        "topic": "prgs/impacto",
-        "qos": "2",
-        "datatype": "auto-detect",
-        "broker": "8cbfcdb39f5a3db7",
-        "nl": false,
-        "rap": true,
-        "rh": 0,
-        "inputs": 0,
-        "x": 110,
-        "y": 760,
-        "wires": [
-            [
-                "6ad78ce410fe7247"
-            ]
-        ]
-    },
-    {
-        "id": "44ce634c3ef7b6b2",
-        "type": "debug",
-        "z": "55f5b3a3f1390ea8",
-        "name": "debug 23",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "false",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 500,
-        "y": 760,
-        "wires": []
-    },
-    {
-        "id": "6ad78ce410fe7247",
-        "type": "postgresql",
-        "z": "55f5b3a3f1390ea8",
-        "name": "",
-        "query": "INSERT INTO sensor_details (sensor_id, user_id, value) VALUES (47,1, {{{msg.payload}}});",
-        "postgreSQLConfig": "3cd515a78cadaa56",
-        "split": false,
-        "rowsPerMsg": 1,
-        "outputs": 1,
-        "x": 330,
-        "y": 760,
-        "wires": [
-            [
-                "44ce634c3ef7b6b2"
-            ]
-        ]
-    },
-    {
-        "id": "f1e8757ab0cb4a55",
-        "type": "debug",
-        "z": "55f5b3a3f1390ea8",
-        "name": "debug 24",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "false",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 500,
-        "y": 820,
-        "wires": []
-    },
-    {
-        "id": "7dadb6ccdc0ca763",
-        "type": "mqtt in",
-        "z": "55f5b3a3f1390ea8",
-        "name": "",
-        "topic": "prgs/ledrgb2",
-        "qos": "2",
-        "datatype": "auto-detect",
-        "broker": "8cbfcdb39f5a3db7",
-        "nl": false,
-        "rap": true,
-        "rh": 0,
-        "inputs": 0,
-        "x": 110,
-        "y": 820,
-        "wires": [
-            [
-                "1f88e5fbb1adb87a"
-            ]
-        ]
-    },
-    {
-        "id": "1f88e5fbb1adb87a",
-        "type": "postgresql",
-        "z": "55f5b3a3f1390ea8",
-        "name": "",
-        "query": "INSERT INTO actuator_details (actuator_id, user_id, state) VALUES (44,1, {{{msg.payload}}});",
-        "postgreSQLConfig": "3cd515a78cadaa56",
-        "split": false,
-        "rowsPerMsg": 1,
-        "outputs": 1,
-        "x": 330,
-        "y": 820,
-        "wires": [
-            [
-                "f1e8757ab0cb4a55"
-            ]
-        ]
-    },
-    {
-        "id": "aa6621ecea0dae94",
-        "type": "debug",
-        "z": "55f5b3a3f1390ea8",
-        "name": "debug 25",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "false",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 1380,
-        "y": 760,
-        "wires": []
-    },
-    {
-        "id": "7fdf6411795b72a3",
-        "type": "mqtt in",
-        "z": "55f5b3a3f1390ea8",
-        "name": "",
-        "topic": "prgs/ledrgb7",
-        "qos": "2",
-        "datatype": "auto-detect",
-        "broker": "8cbfcdb39f5a3db7",
-        "nl": false,
-        "rap": true,
-        "rh": 0,
-        "inputs": 0,
-        "x": 990,
-        "y": 760,
-        "wires": [
-            [
-                "b0a0bd8d0b894772"
-            ]
-        ]
-    },
-    {
-        "id": "b0a0bd8d0b894772",
-        "type": "postgresql",
-        "z": "55f5b3a3f1390ea8",
-        "name": "",
-        "query": "INSERT INTO actuator_details (actuator_id, user_id, state) VALUES (45,1, {{{msg.payload}}});",
-        "postgreSQLConfig": "3cd515a78cadaa56",
-        "split": false,
-        "rowsPerMsg": 1,
-        "outputs": 1,
-        "x": 1210,
-        "y": 760,
-        "wires": [
-            [
-                "aa6621ecea0dae94"
-            ]
-        ]
-    },
-    {
-        "id": "e34817475bbfdb0f",
-        "type": "mqtt in",
-        "z": "55f5b3a3f1390ea8",
-        "name": "",
-        "topic": "prgs/hallanalogico",
-        "qos": "2",
-        "datatype": "auto-detect",
-        "broker": "8cbfcdb39f5a3db7",
-        "nl": false,
-        "rap": true,
-        "rh": 0,
-        "inputs": 0,
-        "x": 1010,
-        "y": 820,
-        "wires": [
-            [
-                "cca5b2dbef2d584d"
-            ]
-        ]
-    },
-    {
-        "id": "d5b6962a1e4a8dba",
-        "type": "debug",
-        "z": "55f5b3a3f1390ea8",
-        "name": "debug 26",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "payload",
-        "targetType": "msg",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 1380,
-        "y": 820,
-        "wires": []
-    },
-    {
-        "id": "cca5b2dbef2d584d",
-        "type": "postgresql",
-        "z": "55f5b3a3f1390ea8",
-        "name": "",
-        "query": "INSERT INTO sensor_details (sensor_id, user_id, value) VALUES (48,1, {{{msg.payload}}});",
-        "postgreSQLConfig": "3cd515a78cadaa56",
-        "split": false,
-        "rowsPerMsg": 1,
-        "outputs": 1,
-        "x": 1210,
-        "y": 820,
-        "wires": [
-            [
-                "d5b6962a1e4a8dba"
-            ]
-        ]
-    },
-    {
-        "id": "fd2c93154a6e24bd",
-        "type": "mqtt in",
-        "z": "55f5b3a3f1390ea8",
-        "name": "",
-        "topic": "prgs/obstaculos",
-        "qos": "2",
-        "datatype": "auto-detect",
-        "broker": "8cbfcdb39f5a3db7",
-        "nl": false,
-        "rap": true,
-        "rh": 0,
-        "inputs": 0,
-        "x": 120,
-        "y": 880,
-        "wires": [
-            [
-                "eb80add3cc3e1eae"
-            ]
-        ]
-    },
-    {
-        "id": "56a4fd5eba31fca7",
-        "type": "debug",
-        "z": "55f5b3a3f1390ea8",
-        "name": "debug 27",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "payload",
-        "targetType": "msg",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 500,
-        "y": 880,
-        "wires": []
-    },
-    {
-        "id": "eb80add3cc3e1eae",
-        "type": "postgresql",
-        "z": "55f5b3a3f1390ea8",
+        "z": "15aa9154d475a501",
         "name": "",
         "query": "INSERT INTO sensor_details (sensor_id, user_id, value) VALUES (49,1, {{{msg.payload}}});",
-        "postgreSQLConfig": "3cd515a78cadaa56",
+        "postgreSQLConfig": "360fe317051e6282",
         "split": false,
         "rowsPerMsg": 1,
         "outputs": 1,
-        "x": 330,
-        "y": 880,
+        "x": 550,
+        "y": 2360,
         "wires": [
             [
-                "56a4fd5eba31fca7"
+                "d966d10d38f316a1"
             ]
         ]
-    },
-    {
-        "id": "0f312460d6d5b0a7",
-        "type": "mqtt in",
-        "z": "55f5b3a3f1390ea8",
-        "name": "",
-        "topic": "prgs/lineas",
-        "qos": "2",
-        "datatype": "auto-detect",
-        "broker": "8cbfcdb39f5a3db7",
-        "nl": false,
-        "rap": true,
-        "rh": 0,
-        "inputs": 0,
-        "x": 100,
-        "y": 940,
-        "wires": [
-            [
-                "7a685a38f1107a74"
-            ]
-        ]
-    },
-    {
-        "id": "49c25f384a052e8c",
-        "type": "debug",
-        "z": "55f5b3a3f1390ea8",
-        "name": "debug 28",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "payload",
-        "targetType": "msg",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 500,
-        "y": 940,
-        "wires": []
-    },
-    {
-        "id": "7a685a38f1107a74",
-        "type": "postgresql",
-        "z": "55f5b3a3f1390ea8",
-        "name": "",
-        "query": "INSERT INTO sensor_details (sensor_id, user_id, value) VALUES (50,1, {{{msg.payload}}});",
-        "postgreSQLConfig": "3cd515a78cadaa56",
-        "split": false,
-        "rowsPerMsg": 1,
-        "outputs": 1,
-        "x": 330,
-        "y": 940,
-        "wires": [
-            [
-                "49c25f384a052e8c"
-            ]
-        ]
-    },
-    {
-        "id": "8cef134542b7f562",
-        "type": "comment",
-        "z": "55f5b3a3f1390ea8",
-        "name": "Roy",
-        "info": "",
-        "x": 1550,
-        "y": 820,
-        "wires": []
-    },
-    {
-        "id": "c3fc0875252ee216",
-        "type": "comment",
-        "z": "55f5b3a3f1390ea8",
-        "name": "Jesus",
-        "info": "",
-        "x": 670,
-        "y": 940,
-        "wires": []
-    },
-    {
-        "id": "9704944d8271a6ac",
-        "type": "comment",
-        "z": "55f5b3a3f1390ea8",
-        "name": "Jesus",
-        "info": "",
-        "x": 670,
-        "y": 880,
-        "wires": []
-    },
-    {
-        "id": "35172fc487b55c48",
-        "type": "comment",
-        "z": "55f5b3a3f1390ea8",
-        "name": "Roy",
-        "info": "",
-        "x": 1550,
-        "y": 760,
-        "wires": []
-    },
-    {
-        "id": "62efd447f39f86df",
-        "type": "mqtt in",
-        "z": "55f5b3a3f1390ea8",
-        "name": "",
-        "topic": "prgs/tactiles",
-        "qos": "2",
-        "datatype": "auto-detect",
-        "broker": "8cbfcdb39f5a3db7",
-        "nl": false,
-        "rap": true,
-        "rh": 0,
-        "inputs": 0,
-        "x": 990,
-        "y": 880,
-        "wires": [
-            [
-                "702673c391ac5b4b"
-            ]
-        ]
-    },
-    {
-        "id": "13cc9bededfa8334",
-        "type": "debug",
-        "z": "55f5b3a3f1390ea8",
-        "name": "debug 29",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "payload",
-        "targetType": "msg",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 1380,
-        "y": 880,
-        "wires": []
-    },
-    {
-        "id": "702673c391ac5b4b",
-        "type": "postgresql",
-        "z": "55f5b3a3f1390ea8",
-        "name": "",
-        "query": "INSERT INTO sensor_details (sensor_id, user_id, value) VALUES (51,1, {{{msg.payload}}});",
-        "postgreSQLConfig": "3cd515a78cadaa56",
-        "split": false,
-        "rowsPerMsg": 1,
-        "outputs": 1,
-        "x": 1210,
-        "y": 880,
-        "wires": [
-            [
-                "13cc9bededfa8334"
-            ]
-        ]
-    },
-    {
-        "id": "c1c4c68de969bd74",
-        "type": "mqtt in",
-        "z": "55f5b3a3f1390ea8",
-        "name": "",
-        "topic": "prgs/pulso",
-        "qos": "2",
-        "datatype": "auto-detect",
-        "broker": "8cbfcdb39f5a3db7",
-        "nl": false,
-        "rap": true,
-        "rh": 0,
-        "inputs": 0,
-        "x": 980,
-        "y": 940,
-        "wires": [
-            [
-                "7ac35581a48e6143"
-            ]
-        ]
-    },
-    {
-        "id": "904658912ed2db1e",
-        "type": "debug",
-        "z": "55f5b3a3f1390ea8",
-        "name": "debug 30",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "payload",
-        "targetType": "msg",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 1380,
-        "y": 940,
-        "wires": []
-    },
-    {
-        "id": "7ac35581a48e6143",
-        "type": "postgresql",
-        "z": "55f5b3a3f1390ea8",
-        "name": "",
-        "query": "INSERT INTO sensor_details (sensor_id, user_id, value) VALUES (52,1, {{{msg.payload}}});",
-        "postgreSQLConfig": "3cd515a78cadaa56",
-        "split": false,
-        "rowsPerMsg": 1,
-        "outputs": 1,
-        "x": 1210,
-        "y": 940,
-        "wires": [
-            [
-                "904658912ed2db1e"
-            ]
-        ]
-    },
-    {
-        "id": "9ff5490d49aacd84",
-        "type": "debug",
-        "z": "55f5b3a3f1390ea8",
-        "name": "debug 31",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "false",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 500,
-        "y": 1000,
-        "wires": []
-    },
-    {
-        "id": "3d63547751c41e06",
-        "type": "mqtt in",
-        "z": "55f5b3a3f1390ea8",
-        "name": "",
-        "topic": "prgs/encoder",
-        "qos": "2",
-        "datatype": "auto-detect",
-        "broker": "8cbfcdb39f5a3db7",
-        "nl": false,
-        "rap": true,
-        "rh": 0,
-        "inputs": 0,
-        "x": 110,
-        "y": 1000,
-        "wires": [
-            [
-                "c7283075f0386421"
-            ]
-        ]
-    },
-    {
-        "id": "c7283075f0386421",
-        "type": "postgresql",
-        "z": "55f5b3a3f1390ea8",
-        "name": "",
-        "query": "INSERT INTO actuator_details (actuator_id, user_id, state) VALUES (46,1, {{{msg.payload}}});",
-        "postgreSQLConfig": "3cd515a78cadaa56",
-        "split": false,
-        "rowsPerMsg": 1,
-        "outputs": 1,
-        "x": 330,
-        "y": 1000,
-        "wires": [
-            [
-                "9ff5490d49aacd84"
-            ]
-        ]
-    },
-    {
-        "id": "dbd0ccfde7cccb42",
-        "type": "comment",
-        "z": "55f5b3a3f1390ea8",
-        "name": "Roy",
-        "info": "",
-        "x": 1550,
-        "y": 880,
-        "wires": []
-    },
-    {
-        "id": "d847f35ccb79b70c",
-        "type": "mqtt in",
-        "z": "55f5b3a3f1390ea8",
-        "name": "",
-        "topic": "prgs/infrarojo",
-        "qos": "2",
-        "datatype": "auto-detect",
-        "broker": "8cbfcdb39f5a3db7",
-        "nl": false,
-        "rap": true,
-        "rh": 0,
-        "inputs": 0,
-        "x": 990,
-        "y": 1000,
-        "wires": [
-            [
-                "a897dcaa80150723"
-            ]
-        ]
-    },
-    {
-        "id": "870b7a066db9f232",
-        "type": "debug",
-        "z": "55f5b3a3f1390ea8",
-        "name": "debug 32",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "payload",
-        "targetType": "msg",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 1380,
-        "y": 1000,
-        "wires": []
-    },
-    {
-        "id": "a897dcaa80150723",
-        "type": "postgresql",
-        "z": "55f5b3a3f1390ea8",
-        "name": "",
-        "query": "INSERT INTO sensor_details (sensor_id, user_id, value) VALUES (53,1, {{{msg.payload}}});",
-        "postgreSQLConfig": "3cd515a78cadaa56",
-        "split": false,
-        "rowsPerMsg": 1,
-        "outputs": 1,
-        "x": 1210,
-        "y": 1000,
-        "wires": [
-            [
-                "870b7a066db9f232"
-            ]
-        ]
-    },
-    {
-        "id": "0b69eabc216d273f",
-        "type": "comment",
-        "z": "55f5b3a3f1390ea8",
-        "name": "Roy",
-        "info": "",
-        "x": 1550,
-        "y": 940,
-        "wires": []
-    },
-    {
-        "id": "e916d15ab1361b95",
-        "type": "comment",
-        "z": "55f5b3a3f1390ea8",
-        "name": "Jesus",
-        "info": "",
-        "x": 670,
-        "y": 1000,
-        "wires": []
-    },
-    {
-        "id": "22518c33e706b879",
-        "type": "comment",
-        "z": "55f5b3a3f1390ea8",
-        "name": "Jesus",
-        "info": "",
-        "x": 670,
-        "y": 700,
-        "wires": []
-    },
-    {
-        "id": "d805b52c8a2d3462",
-        "type": "comment",
-        "z": "55f5b3a3f1390ea8",
-        "name": "Jesus",
-        "info": "",
-        "x": 670,
-        "y": 820,
-        "wires": []
-    },
-    {
-        "id": "ebfe103b85bf8f27",
-        "type": "comment",
-        "z": "55f5b3a3f1390ea8",
-        "name": "Roy",
-        "info": "",
-        "x": 1550,
-        "y": 1000,
-        "wires": []
-    },
-    {
-        "id": "1342945ac13fa6fa",
-        "type": "debug",
-        "z": "55f5b3a3f1390ea8",
-        "name": "debug 33",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "false",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 1380,
-        "y": 1060,
-        "wires": []
-    },
-    {
-        "id": "f762542deea8f7fe",
-        "type": "mqtt in",
-        "z": "55f5b3a3f1390ea8",
-        "name": "",
-        "topic": "prgs/buzzeract",
-        "qos": "2",
-        "datatype": "auto-detect",
-        "broker": "8cbfcdb39f5a3db7",
-        "nl": false,
-        "rap": true,
-        "rh": 0,
-        "inputs": 0,
-        "x": 1000,
-        "y": 1060,
-        "wires": [
-            [
-                "938500753d2d8535"
-            ]
-        ]
-    },
-    {
-        "id": "938500753d2d8535",
-        "type": "postgresql",
-        "z": "55f5b3a3f1390ea8",
-        "name": "",
-        "query": "INSERT INTO actuator_details (actuator_id, user_id, state) VALUES (47,1, {{{msg.payload}}});",
-        "postgreSQLConfig": "3cd515a78cadaa56",
-        "split": false,
-        "rowsPerMsg": 1,
-        "outputs": 1,
-        "x": 1210,
-        "y": 1060,
-        "wires": [
-            [
-                "1342945ac13fa6fa"
-            ]
-        ]
-    },
-    {
-        "id": "e530368d43a2d9a5",
-        "type": "comment",
-        "z": "55f5b3a3f1390ea8",
-        "name": "Roy",
-        "info": "",
-        "x": 1550,
-        "y": 1060,
-        "wires": []
-    },
-    {
-        "id": "3c1ea752f756a222",
-        "type": "debug",
-        "z": "55f5b3a3f1390ea8",
-        "name": "debug 34",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "false",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 1380,
-        "y": 1120,
-        "wires": []
-    },
-    {
-        "id": "c8a695d653a3d1d7",
-        "type": "mqtt in",
-        "z": "55f5b3a3f1390ea8",
-        "name": "",
-        "topic": "prgs/buzzerpas",
-        "qos": "2",
-        "datatype": "auto-detect",
-        "broker": "8cbfcdb39f5a3db7",
-        "nl": false,
-        "rap": true,
-        "rh": 0,
-        "inputs": 0,
-        "x": 1000,
-        "y": 1120,
-        "wires": [
-            [
-                "0ae8c791c769decb"
-            ]
-        ]
-    },
-    {
-        "id": "0ae8c791c769decb",
-        "type": "postgresql",
-        "z": "55f5b3a3f1390ea8",
-        "name": "",
-        "query": "INSERT INTO actuator_details (actuator_id, user_id, state) VALUES (48,1, {{{msg.payload}}});",
-        "postgreSQLConfig": "3cd515a78cadaa56",
-        "split": false,
-        "rowsPerMsg": 1,
-        "outputs": 1,
-        "x": 1210,
-        "y": 1120,
-        "wires": [
-            [
-                "3c1ea752f756a222"
-            ]
-        ]
-    },
-    {
-        "id": "d1b422af71a93d3c",
-        "type": "comment",
-        "z": "55f5b3a3f1390ea8",
-        "name": "Jesus",
-        "info": "",
-        "x": 670,
-        "y": 760,
-        "wires": []
-    },
-    {
-        "id": "3b69332b84b1e37b",
-        "type": "debug",
-        "z": "55f5b3a3f1390ea8",
-        "name": "debug 35",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "false",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 500,
-        "y": 1060,
-        "wires": []
-    },
-    {
-        "id": "4705b85b3a991ba1",
-        "type": "mqtt in",
-        "z": "55f5b3a3f1390ea8",
-        "name": "",
-        "topic": "prgs/fotoresistencia",
-        "qos": "2",
-        "datatype": "auto-detect",
-        "broker": "8cbfcdb39f5a3db7",
-        "nl": false,
-        "rap": true,
-        "rh": 0,
-        "inputs": 0,
-        "x": 130,
-        "y": 1060,
-        "wires": [
-            [
-                "84976d76c6717338"
-            ]
-        ]
-    },
-    {
-        "id": "84976d76c6717338",
-        "type": "postgresql",
-        "z": "55f5b3a3f1390ea8",
-        "name": "",
-        "query": "INSERT INTO actuator_details (actuator_id, user_id, state) VALUES (49,1, {{{msg.payload}}});",
-        "postgreSQLConfig": "3cd515a78cadaa56",
-        "split": false,
-        "rowsPerMsg": 1,
-        "outputs": 1,
-        "x": 330,
-        "y": 1060,
-        "wires": [
-            [
-                "3b69332b84b1e37b"
-            ]
-        ]
-    },
-    {
-        "id": "13f757865057b75a",
-        "type": "comment",
-        "z": "55f5b3a3f1390ea8",
-        "name": "Jesus",
-        "info": "",
-        "x": 670,
-        "y": 1060,
-        "wires": []
-    },
-    {
-        "id": "69ce81a6bbbcd236",
-        "type": "mqtt in",
-        "z": "55f5b3a3f1390ea8",
-        "name": "",
-        "topic": "prgs/temperaturaana",
-        "qos": "2",
-        "datatype": "auto-detect",
-        "broker": "8cbfcdb39f5a3db7",
-        "nl": false,
-        "rap": true,
-        "rh": 0,
-        "inputs": 0,
-        "x": 130,
-        "y": 1120,
-        "wires": [
-            [
-                "f872546fc1bf109a"
-            ]
-        ]
-    },
-    {
-        "id": "c411d609921740ec",
-        "type": "debug",
-        "z": "55f5b3a3f1390ea8",
-        "name": "debug 36",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "payload",
-        "targetType": "msg",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 500,
-        "y": 1120,
-        "wires": []
-    },
-    {
-        "id": "f872546fc1bf109a",
-        "type": "postgresql",
-        "z": "55f5b3a3f1390ea8",
-        "name": "",
-        "query": "INSERT INTO sensor_details (sensor_id, user_id, value) VALUES (54,1, {{{msg.payload}}});",
-        "postgreSQLConfig": "3cd515a78cadaa56",
-        "split": false,
-        "rowsPerMsg": 1,
-        "outputs": 1,
-        "x": 330,
-        "y": 1120,
-        "wires": [
-            [
-                "c411d609921740ec"
-            ]
-        ]
-    },
-    {
-        "id": "205e1052779d05dc",
-        "type": "comment",
-        "z": "55f5b3a3f1390ea8",
-        "name": "Jesus",
-        "info": "",
-        "x": 670,
-        "y": 1120,
-        "wires": []
-    },
-    {
-        "id": "1d2c9d5c6be0c519",
-        "type": "comment",
-        "z": "55f5b3a3f1390ea8",
-        "name": "Roy",
-        "info": "",
-        "x": 1550,
-        "y": 1120,
-        "wires": []
-    },
-    {
-        "id": "778bba38280b5491",
-        "type": "mqtt in",
-        "z": "55f5b3a3f1390ea8",
-        "name": "",
-        "topic": "prgs/flama",
-        "qos": "2",
-        "datatype": "auto-detect",
-        "broker": "8cbfcdb39f5a3db7",
-        "nl": false,
-        "rap": true,
-        "rh": 0,
-        "inputs": 0,
-        "x": 980,
-        "y": 1180,
-        "wires": [
-            [
-                "4de6a27fecb8fe28"
-            ]
-        ]
-    },
-    {
-        "id": "cf0f89236420d313",
-        "type": "debug",
-        "z": "55f5b3a3f1390ea8",
-        "name": "debug 37",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "payload",
-        "targetType": "msg",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 1380,
-        "y": 1180,
-        "wires": []
-    },
-    {
-        "id": "4de6a27fecb8fe28",
-        "type": "postgresql",
-        "z": "55f5b3a3f1390ea8",
-        "name": "",
-        "query": "INSERT INTO sensor_details (sensor_id, user_id, value) VALUES (55,1, {{{msg.payload}}});",
-        "postgreSQLConfig": "3cd515a78cadaa56",
-        "split": false,
-        "rowsPerMsg": 1,
-        "outputs": 1,
-        "x": 1210,
-        "y": 1180,
-        "wires": [
-            [
-                "cf0f89236420d313"
-            ]
-        ]
-    },
-    {
-        "id": "492bda36576f6678",
-        "type": "comment",
-        "z": "55f5b3a3f1390ea8",
-        "name": "Roy",
-        "info": "",
-        "x": 1550,
-        "y": 1180,
-        "wires": []
-    },
-    {
-        "id": "7e26d765267d31a0",
-        "type": "debug",
-        "z": "55f5b3a3f1390ea8",
-        "name": "debug 38",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "false",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 1380,
-        "y": 1240,
-        "wires": []
-    },
-    {
-        "id": "6e87fdea2c3236a7",
-        "type": "mqtt in",
-        "z": "55f5b3a3f1390ea8",
-        "name": "",
-        "topic": "prgs/reedswitch",
-        "qos": "2",
-        "datatype": "auto-detect",
-        "broker": "8cbfcdb39f5a3db7",
-        "nl": false,
-        "rap": true,
-        "rh": 0,
-        "inputs": 0,
-        "x": 1000,
-        "y": 1240,
-        "wires": [
-            [
-                "09a2af137f652cc4"
-            ]
-        ]
-    },
-    {
-        "id": "09a2af137f652cc4",
-        "type": "postgresql",
-        "z": "55f5b3a3f1390ea8",
-        "name": "",
-        "query": "INSERT INTO actuator_details (actuator_id, user_id, state) VALUES (50,1, {{{msg.payload}}});",
-        "postgreSQLConfig": "3cd515a78cadaa56",
-        "split": false,
-        "rowsPerMsg": 1,
-        "outputs": 1,
-        "x": 1210,
-        "y": 1240,
-        "wires": [
-            [
-                "7e26d765267d31a0"
-            ]
-        ]
-    },
-    {
-        "id": "ceb96c0f672bd515",
-        "type": "comment",
-        "z": "55f5b3a3f1390ea8",
-        "name": "Roy",
-        "info": "",
-        "x": 1550,
-        "y": 1240,
-        "wires": []
-    },
-    {
-        "id": "780deecf24ba8936",
-        "type": "debug",
-        "z": "55f5b3a3f1390ea8",
-        "name": "debug 39",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "false",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 500,
-        "y": 1180,
-        "wires": []
-    },
-    {
-        "id": "f66d748ac0177876",
-        "type": "mqtt in",
-        "z": "55f5b3a3f1390ea8",
-        "name": "",
-        "topic": "prgs/relevador",
-        "qos": "2",
-        "datatype": "auto-detect",
-        "broker": "8cbfcdb39f5a3db7",
-        "nl": false,
-        "rap": true,
-        "rh": 0,
-        "inputs": 0,
-        "x": 110,
-        "y": 1180,
-        "wires": [
-            [
-                "63dc44f546e2810b"
-            ]
-        ]
-    },
-    {
-        "id": "63dc44f546e2810b",
-        "type": "postgresql",
-        "z": "55f5b3a3f1390ea8",
-        "name": "",
-        "query": "INSERT INTO actuator_details (actuator_id, user_id, state) VALUES (51,1, {{{msg.payload}}});",
-        "postgreSQLConfig": "3cd515a78cadaa56",
-        "split": false,
-        "rowsPerMsg": 1,
-        "outputs": 1,
-        "x": 330,
-        "y": 1180,
-        "wires": [
-            [
-                "780deecf24ba8936"
-            ]
-        ]
-    },
-    {
-        "id": "e1ebb40c0cf09a3d",
-        "type": "comment",
-        "z": "55f5b3a3f1390ea8",
-        "name": "Jesus",
-        "info": "",
-        "x": 670,
-        "y": 1180,
-        "wires": []
-    },
-    {
-        "id": "6292c6f73a350b05",
-        "type": "mqtt in",
-        "z": "55f5b3a3f1390ea8",
-        "name": "",
-        "topic": "prgs/mq3",
-        "qos": "2",
-        "datatype": "auto-detect",
-        "broker": "8cbfcdb39f5a3db7",
-        "nl": false,
-        "rap": true,
-        "rh": 0,
-        "inputs": 0,
-        "x": 1900,
-        "y": 280,
-        "wires": [
-            [
-                "62ce0d3bdf31394d"
-            ]
-        ]
-    },
-    {
-        "id": "7fbf4a44e6e686c4",
-        "type": "debug",
-        "z": "55f5b3a3f1390ea8",
-        "name": "debug 40",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "payload",
-        "targetType": "msg",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 2300,
-        "y": 280,
-        "wires": []
-    },
-    {
-        "id": "62ce0d3bdf31394d",
-        "type": "postgresql",
-        "z": "55f5b3a3f1390ea8",
-        "name": "",
-        "query": "INSERT INTO sensor_details (sensor_id, user_id, value) VALUES (56,1, {{{msg.payload}}});",
-        "postgreSQLConfig": "3cd515a78cadaa56",
-        "split": false,
-        "rowsPerMsg": 1,
-        "outputs": 1,
-        "x": 2130,
-        "y": 280,
-        "wires": [
-            [
-                "7fbf4a44e6e686c4"
-            ]
-        ]
-    },
-    {
-        "id": "95a6eb9f8d85c0a5",
-        "type": "comment",
-        "z": "55f5b3a3f1390ea8",
-        "name": "Jesus",
-        "info": "",
-        "x": 2590,
-        "y": 160,
-        "wires": []
-    },
-    {
-        "id": "d8213c6f5ea6ebf3",
-        "type": "comment",
-        "z": "55f5b3a3f1390ea8",
-        "name": "Jesus",
-        "info": "",
-        "x": 2590,
-        "y": 220,
-        "wires": []
-    },
-    {
-        "id": "fd5c95d71304f957",
-        "type": "comment",
-        "z": "55f5b3a3f1390ea8",
-        "name": "Roy",
-        "info": "",
-        "x": 2470,
-        "y": 280,
-        "wires": []
-    },
-    {
-        "id": "47bfc455acc78f79",
-        "type": "comment",
-        "z": "55f5b3a3f1390ea8",
-        "name": "Jesus",
-        "info": "",
-        "x": 2590,
-        "y": 280,
-        "wires": []
-    },
-    {
-        "id": "45bb38b642c2b0c1",
-        "type": "mqtt in",
-        "z": "55f5b3a3f1390ea8",
-        "name": "",
-        "topic": "prgs/mq4",
-        "qos": "2",
-        "datatype": "auto-detect",
-        "broker": "8cbfcdb39f5a3db7",
-        "nl": false,
-        "rap": true,
-        "rh": 0,
-        "inputs": 0,
-        "x": 1900,
-        "y": 340,
-        "wires": [
-            [
-                "c5f3a050f0f313ac"
-            ]
-        ]
-    },
-    {
-        "id": "9356b23719ba8028",
-        "type": "debug",
-        "z": "55f5b3a3f1390ea8",
-        "name": "debug 41",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "payload",
-        "targetType": "msg",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 2300,
-        "y": 340,
-        "wires": []
-    },
-    {
-        "id": "c5f3a050f0f313ac",
-        "type": "postgresql",
-        "z": "55f5b3a3f1390ea8",
-        "name": "",
-        "query": "INSERT INTO sensor_details (sensor_id, user_id, value) VALUES (57,1, {{{msg.payload}}});",
-        "postgreSQLConfig": "3cd515a78cadaa56",
-        "split": false,
-        "rowsPerMsg": 1,
-        "outputs": 1,
-        "x": 2130,
-        "y": 340,
-        "wires": [
-            [
-                "9356b23719ba8028"
-            ]
-        ]
-    },
-    {
-        "id": "9f0e53ee2c5eee7c",
-        "type": "comment",
-        "z": "55f5b3a3f1390ea8",
-        "name": "Roy",
-        "info": "",
-        "x": 2470,
-        "y": 340,
-        "wires": []
-    },
-    {
-        "id": "7d7ab87991f1d455",
-        "type": "comment",
-        "z": "55f5b3a3f1390ea8",
-        "name": "Jesus",
-        "info": "",
-        "x": 2590,
-        "y": 340,
-        "wires": []
-    },
-    {
-        "id": "f66392e064645d1e",
-        "type": "mqtt in",
-        "z": "55f5b3a3f1390ea8",
-        "name": "",
-        "topic": "prgs/mq6",
-        "qos": "2",
-        "datatype": "auto-detect",
-        "broker": "8cbfcdb39f5a3db7",
-        "nl": false,
-        "rap": true,
-        "rh": 0,
-        "inputs": 0,
-        "x": 1900,
-        "y": 400,
-        "wires": [
-            [
-                "5f41cee21025a803"
-            ]
-        ]
-    },
-    {
-        "id": "15159cdbfa98ba78",
-        "type": "debug",
-        "z": "55f5b3a3f1390ea8",
-        "name": "debug 42",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "payload",
-        "targetType": "msg",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 2300,
-        "y": 400,
-        "wires": []
-    },
-    {
-        "id": "5f41cee21025a803",
-        "type": "postgresql",
-        "z": "55f5b3a3f1390ea8",
-        "name": "",
-        "query": "INSERT INTO sensor_details (sensor_id, user_id, value) VALUES (58,1, {{{msg.payload}}});",
-        "postgreSQLConfig": "3cd515a78cadaa56",
-        "split": false,
-        "rowsPerMsg": 1,
-        "outputs": 1,
-        "x": 2130,
-        "y": 400,
-        "wires": [
-            [
-                "15159cdbfa98ba78"
-            ]
-        ]
-    },
-    {
-        "id": "d4dfd9dd2fb1462a",
-        "type": "comment",
-        "z": "55f5b3a3f1390ea8",
-        "name": "Roy",
-        "info": "",
-        "x": 2470,
-        "y": 400,
-        "wires": []
-    },
-    {
-        "id": "b9901f07f3fdbf8a",
-        "type": "comment",
-        "z": "55f5b3a3f1390ea8",
-        "name": "Jesus",
-        "info": "",
-        "x": 2590,
-        "y": 400,
-        "wires": []
-    },
-    {
-        "id": "9800c3ad660f78ae",
-        "type": "mqtt in",
-        "z": "55f5b3a3f1390ea8",
-        "name": "",
-        "topic": "prgs/mq7",
-        "qos": "2",
-        "datatype": "auto-detect",
-        "broker": "8cbfcdb39f5a3db7",
-        "nl": false,
-        "rap": true,
-        "rh": 0,
-        "inputs": 0,
-        "x": 1900,
-        "y": 460,
-        "wires": [
-            [
-                "a25be534538eb00e"
-            ]
-        ]
-    },
-    {
-        "id": "328ec02189d09061",
-        "type": "debug",
-        "z": "55f5b3a3f1390ea8",
-        "name": "debug 43",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "payload",
-        "targetType": "msg",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 2300,
-        "y": 460,
-        "wires": []
-    },
-    {
-        "id": "a25be534538eb00e",
-        "type": "postgresql",
-        "z": "55f5b3a3f1390ea8",
-        "name": "",
-        "query": "INSERT INTO sensor_details (sensor_id, user_id, value) VALUES (59,1, {{{msg.payload}}});",
-        "postgreSQLConfig": "3cd515a78cadaa56",
-        "split": false,
-        "rowsPerMsg": 1,
-        "outputs": 1,
-        "x": 2130,
-        "y": 460,
-        "wires": [
-            [
-                "328ec02189d09061"
-            ]
-        ]
-    },
-    {
-        "id": "e7dbd0955633d4fb",
-        "type": "comment",
-        "z": "55f5b3a3f1390ea8",
-        "name": "Roy",
-        "info": "",
-        "x": 2470,
-        "y": 460,
-        "wires": []
-    },
-    {
-        "id": "c02b45d36bf3f781",
-        "type": "comment",
-        "z": "55f5b3a3f1390ea8",
-        "name": "Jesus",
-        "info": "",
-        "x": 2590,
-        "y": 460,
-        "wires": []
-    },
-    {
-        "id": "81b29c0ae7f04ab1",
-        "type": "mqtt in",
-        "z": "55f5b3a3f1390ea8",
-        "name": "",
-        "topic": "prgs/mq8",
-        "qos": "2",
-        "datatype": "auto-detect",
-        "broker": "8cbfcdb39f5a3db7",
-        "nl": false,
-        "rap": true,
-        "rh": 0,
-        "inputs": 0,
-        "x": 1900,
-        "y": 520,
-        "wires": [
-            [
-                "ca376931459fa540"
-            ]
-        ]
-    },
-    {
-        "id": "152a358f4f2cf08a",
-        "type": "debug",
-        "z": "55f5b3a3f1390ea8",
-        "name": "debug 44",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "payload",
-        "targetType": "msg",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 2300,
-        "y": 520,
-        "wires": []
-    },
-    {
-        "id": "ca376931459fa540",
-        "type": "postgresql",
-        "z": "55f5b3a3f1390ea8",
-        "name": "",
-        "query": "INSERT INTO sensor_details (sensor_id, user_id, value) VALUES (60,1, {{{msg.payload}}});",
-        "postgreSQLConfig": "3cd515a78cadaa56",
-        "split": false,
-        "rowsPerMsg": 1,
-        "outputs": 1,
-        "x": 2130,
-        "y": 520,
-        "wires": [
-            [
-                "152a358f4f2cf08a"
-            ]
-        ]
-    },
-    {
-        "id": "0f86ee8822f0e542",
-        "type": "comment",
-        "z": "55f5b3a3f1390ea8",
-        "name": "Roy",
-        "info": "",
-        "x": 2470,
-        "y": 520,
-        "wires": []
-    },
-    {
-        "id": "dd6d4ddeb6b8a501",
-        "type": "comment",
-        "z": "55f5b3a3f1390ea8",
-        "name": "Jesus",
-        "info": "",
-        "x": 2590,
-        "y": 520,
-        "wires": []
-    },
-    {
-        "id": "18c532865f96919e",
-        "type": "mqtt in",
-        "z": "55f5b3a3f1390ea8",
-        "name": "",
-        "topic": "prgs/mq135",
-        "qos": "2",
-        "datatype": "auto-detect",
-        "broker": "8cbfcdb39f5a3db7",
-        "nl": false,
-        "rap": true,
-        "rh": 0,
-        "inputs": 0,
-        "x": 1910,
-        "y": 580,
-        "wires": [
-            [
-                "c90f3c1dc5286f98"
-            ]
-        ]
-    },
-    {
-        "id": "c5c8c1e6e973f3c5",
-        "type": "debug",
-        "z": "55f5b3a3f1390ea8",
-        "name": "debug 45",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "payload",
-        "targetType": "msg",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 2300,
-        "y": 580,
-        "wires": []
-    },
-    {
-        "id": "c90f3c1dc5286f98",
-        "type": "postgresql",
-        "z": "55f5b3a3f1390ea8",
-        "name": "",
-        "query": "INSERT INTO sensor_details (sensor_id, user_id, value) VALUES (61,1, {{{msg.payload}}});",
-        "postgreSQLConfig": "3cd515a78cadaa56",
-        "split": false,
-        "rowsPerMsg": 1,
-        "outputs": 1,
-        "x": 2130,
-        "y": 580,
-        "wires": [
-            [
-                "c5c8c1e6e973f3c5"
-            ]
-        ]
-    },
-    {
-        "id": "4357c715d1ad1340",
-        "type": "comment",
-        "z": "55f5b3a3f1390ea8",
-        "name": "Roy",
-        "info": "",
-        "x": 2470,
-        "y": 580,
-        "wires": []
-    },
-    {
-        "id": "7eeaed79c878c3ba",
-        "type": "comment",
-        "z": "55f5b3a3f1390ea8",
-        "name": "Jesus",
-        "info": "",
-        "x": 2590,
-        "y": 580,
-        "wires": []
-    },
-    {
-        "id": "fd46fb0b87dec143",
-        "type": "mqtt in",
-        "z": "55f5b3a3f1390ea8",
-        "name": "",
-        "topic": "prgs/mq2",
-        "qos": "2",
-        "datatype": "auto-detect",
-        "broker": "8cbfcdb39f5a3db7",
-        "nl": false,
-        "rap": true,
-        "rh": 0,
-        "inputs": 0,
-        "x": 1900,
-        "y": 640,
-        "wires": [
-            [
-                "245f1917450d66af"
-            ]
-        ]
-    },
-    {
-        "id": "ee279d1f57b6e8e0",
-        "type": "debug",
-        "z": "55f5b3a3f1390ea8",
-        "name": "debug 46",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "payload",
-        "targetType": "msg",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 2300,
-        "y": 640,
-        "wires": []
-    },
-    {
-        "id": "245f1917450d66af",
-        "type": "postgresql",
-        "z": "55f5b3a3f1390ea8",
-        "name": "",
-        "query": "INSERT INTO sensor_details (sensor_id, user_id, value) VALUES (62,1, {{{msg.payload}}});",
-        "postgreSQLConfig": "3cd515a78cadaa56",
-        "split": false,
-        "rowsPerMsg": 1,
-        "outputs": 1,
-        "x": 2130,
-        "y": 640,
-        "wires": [
-            [
-                "ee279d1f57b6e8e0"
-            ]
-        ]
-    },
-    {
-        "id": "2391578af471ebf2",
-        "type": "comment",
-        "z": "55f5b3a3f1390ea8",
-        "name": "Roy",
-        "info": "",
-        "x": 2470,
-        "y": 640,
-        "wires": []
-    },
-    {
-        "id": "1b7b70b8a776ad7b",
-        "type": "comment",
-        "z": "55f5b3a3f1390ea8",
-        "name": "Jesus",
-        "info": "",
-        "x": 2590,
-        "y": 640,
-        "wires": []
     },
     {
         "id": "8cbfcdb39f5a3db7",
         "type": "mqtt-broker",
         "name": "aiot",
-        "broker": "192.168.137.202",
+        "broker": "192.168.137.196",
         "port": 1883,
         "clientid": "",
         "autoConnect": true,
@@ -3141,7 +1221,7 @@
         "sessionExpiry": ""
     },
     {
-        "id": "3cd515a78cadaa56",
+        "id": "360fe317051e6282",
         "type": "postgreSQLConfig",
         "name": "aiot",
         "host": "127.0.0.1",
